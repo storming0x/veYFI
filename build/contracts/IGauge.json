@@ -1,0 +1,680 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "boostedBalanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "earned",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "stakingToken_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "rewardToken_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "rewardManager_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "ve_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "veYfiRewardPool_",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "queueNewRewards",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "13": "contracts/interfaces/IBaseGauge.sol",
+    "15": "contracts/interfaces/IGauge.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IGauge.sol",
+    "exportedSymbols": {
+      "IBaseGauge": [
+        15629
+      ],
+      "IERC20": [
+        2943
+      ],
+      "IGauge": [
+        3812
+      ]
+    },
+    "id": 3813,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3774,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:15"
+      },
+      {
+        "absolutePath": "contracts/interfaces/IBaseGauge.sol",
+        "file": "./IBaseGauge.sol",
+        "id": 3775,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 3813,
+        "sourceUnit": 15630,
+        "src": "56:26:15",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 3776,
+              "name": "IBaseGauge",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 15629,
+              "src": "104:10:15"
+            },
+            "id": 3777,
+            "nodeType": "InheritanceSpecifier",
+            "src": "104:10:15"
+          }
+        ],
+        "canonicalName": "IGauge",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3812,
+        "linearizedBaseContracts": [
+          3812,
+          15629
+        ],
+        "name": "IGauge",
+        "nameLocation": "94:6:15",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "cc2a9a5b",
+            "id": 3792,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "initialize",
+            "nameLocation": "130:10:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3790,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3779,
+                  "mutability": "mutable",
+                  "name": "stakingToken_",
+                  "nameLocation": "158:13:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3792,
+                  "src": "150:21:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3778,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "150:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3781,
+                  "mutability": "mutable",
+                  "name": "rewardToken_",
+                  "nameLocation": "189:12:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3792,
+                  "src": "181:20:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3780,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "181:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3783,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nameLocation": "219:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3792,
+                  "src": "211:13:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3782,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "211:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3785,
+                  "mutability": "mutable",
+                  "name": "rewardManager_",
+                  "nameLocation": "242:14:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3792,
+                  "src": "234:22:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3784,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "234:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3787,
+                  "mutability": "mutable",
+                  "name": "ve_",
+                  "nameLocation": "274:3:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3792,
+                  "src": "266:11:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3786,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "266:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3789,
+                  "mutability": "mutable",
+                  "name": "veYfiRewardPool_",
+                  "nameLocation": "295:16:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3792,
+                  "src": "287:24:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3788,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "287:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "140:177:15"
+            },
+            "returnParameters": {
+              "id": 3791,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "326:0:15"
+            },
+            "scope": 3812,
+            "src": "121:206:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "18160ddd",
+            "id": 3797,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "totalSupply",
+            "nameLocation": "342:11:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3793,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "353:2:15"
+            },
+            "returnParameters": {
+              "id": 3796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3795,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3797,
+                  "src": "379:7:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3794,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "379:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "378:9:15"
+            },
+            "scope": 3812,
+            "src": "333:55:15",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "70a08231",
+            "id": 3804,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "balanceOf",
+            "nameLocation": "403:9:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3800,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3799,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "421:7:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3804,
+                  "src": "413:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3798,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "413:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "412:17:15"
+            },
+            "returnParameters": {
+              "id": 3803,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3802,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3804,
+                  "src": "453:7:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3801,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "453:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "452:9:15"
+            },
+            "scope": 3812,
+            "src": "394:68:15",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "1beabcd2",
+            "id": 3811,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "boostedBalanceOf",
+            "nameLocation": "477:16:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3807,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3806,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "502:7:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3811,
+                  "src": "494:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3805,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "494:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "493:17:15"
+            },
+            "returnParameters": {
+              "id": 3810,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3809,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3811,
+                  "src": "534:7:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3808,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "534:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "533:9:15"
+            },
+            "scope": 3812,
+            "src": "468:75:15",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3813,
+        "src": "84:461:15",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:514:15"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.12+commit.f00d7308"
+  },
+  "contractName": "IGauge",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [
+    "IBaseGauge"
+  ],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    84,
+    545
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "46c22764f281e5f5da1087e2f27d07457158fae0",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.12;\nimport \"./IBaseGauge.sol\";\n\ninterface IGauge is IBaseGauge {\n    function initialize(\n        address stakingToken_,\n        address rewardToken_,\n        address owner,\n        address rewardManager_,\n        address ve_,\n        address veYfiRewardPool_\n    ) external;\n\n    function totalSupply() external view returns (uint256);\n\n    function balanceOf(address account) external view returns (uint256);\n\n    function boostedBalanceOf(address account) external view returns (uint256);\n}\n",
+  "sourceMap": "",
+  "sourcePath": "contracts/interfaces/IGauge.sol",
+  "type": "interface"
+}
