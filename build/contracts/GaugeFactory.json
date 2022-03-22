@@ -1,0 +1,5519 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_deployedGauge",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_deployedExtra",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "extraReward",
+          "type": "address"
+        }
+      ],
+      "name": "ExtraRewardCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "gauge",
+          "type": "address"
+        }
+      ],
+      "name": "GaugeCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "gauge",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "reward",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "createExtraReward",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_vault",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "yfi",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "manager",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "ve",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "veYfiRewardPool",
+          "type": "address"
+        }
+      ],
+      "name": "createGauge",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deployedExtra",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deployedGauge",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "13": "contracts/GaugeFactory.sol",
+    "18": "contracts/interfaces/IExtraReward.sol",
+    "19": "contracts/interfaces/IGauge.sol",
+    "20": "contracts/interfaces/IGaugeFactory.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/GaugeFactory.sol",
+    "exportedSymbols": {
+      "GaugeFactory": [
+        2230
+      ],
+      "IBaseGauge": [
+        3183
+      ],
+      "IERC20": [
+        3657
+      ],
+      "IExtraReward": [
+        3218
+      ],
+      "IGauge": [
+        3258
+      ],
+      "IGaugeFactory": [
+        3278
+      ]
+    },
+    "id": 2231,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2101,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:13"
+      },
+      {
+        "absolutePath": "contracts/interfaces/IGauge.sol",
+        "file": "./interfaces/IGauge.sol",
+        "id": 2102,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2231,
+        "sourceUnit": 3259,
+        "src": "57:33:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/interfaces/IExtraReward.sol",
+        "file": "./interfaces/IExtraReward.sol",
+        "id": 2103,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2231,
+        "sourceUnit": 3219,
+        "src": "91:39:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/interfaces/IGaugeFactory.sol",
+        "file": "./interfaces/IGaugeFactory.sol",
+        "id": 2104,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2231,
+        "sourceUnit": 3279,
+        "src": "131:40:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2106,
+              "name": "IGaugeFactory",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3278,
+              "src": "313:13:13"
+            },
+            "id": 2107,
+            "nodeType": "InheritanceSpecifier",
+            "src": "313:13:13"
+          }
+        ],
+        "canonicalName": "GaugeFactory",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 2105,
+          "nodeType": "StructuredDocumentation",
+          "src": "173:114:13",
+          "text": "@title  GaugeFactory\n@notice Creates Gauge and ExtraReward\n@dev Uses clone to create new contracts"
+        },
+        "fullyImplemented": true,
+        "id": 2230,
+        "linearizedBaseContracts": [
+          2230,
+          3278
+        ],
+        "name": "GaugeFactory",
+        "nameLocation": "297:12:13",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "651571db",
+            "id": 2109,
+            "mutability": "immutable",
+            "name": "deployedGauge",
+            "nameLocation": "358:13:13",
+            "nodeType": "VariableDeclaration",
+            "scope": 2230,
+            "src": "333:38:13",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 2108,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "333:7:13",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "ef679b60",
+            "id": 2111,
+            "mutability": "immutable",
+            "name": "deployedExtra",
+            "nameLocation": "402:13:13",
+            "nodeType": "VariableDeclaration",
+            "scope": 2230,
+            "src": "377:38:13",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 2110,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "377:7:13",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 2115,
+            "name": "GaugeCreated",
+            "nameLocation": "428:12:13",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2114,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2113,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "gauge",
+                  "nameLocation": "449:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2115,
+                  "src": "441:13:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2112,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:15:13"
+            },
+            "src": "422:34:13"
+          },
+          {
+            "anonymous": false,
+            "id": 2119,
+            "name": "ExtraRewardCreated",
+            "nameLocation": "467:18:13",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2118,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2117,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "extraReward",
+                  "nameLocation": "494:11:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2119,
+                  "src": "486:19:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2116,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "486:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "485:21:13"
+            },
+            "src": "461:46:13"
+          },
+          {
+            "body": {
+              "id": 2134,
+              "nodeType": "Block",
+              "src": "573:87:13",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2128,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 2126,
+                      "name": "deployedGauge",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2109,
+                      "src": "583:13:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 2127,
+                      "name": "_deployedGauge",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2121,
+                      "src": "599:14:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "583:30:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 2129,
+                  "nodeType": "ExpressionStatement",
+                  "src": "583:30:13"
+                },
+                {
+                  "expression": {
+                    "id": 2132,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 2130,
+                      "name": "deployedExtra",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2111,
+                      "src": "623:13:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 2131,
+                      "name": "_deployedExtra",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2123,
+                      "src": "639:14:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "623:30:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 2133,
+                  "nodeType": "ExpressionStatement",
+                  "src": "623:30:13"
+                }
+              ]
+            },
+            "id": 2135,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2121,
+                  "mutability": "mutable",
+                  "name": "_deployedGauge",
+                  "nameLocation": "533:14:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2135,
+                  "src": "525:22:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2120,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "525:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2123,
+                  "mutability": "mutable",
+                  "name": "_deployedExtra",
+                  "nameLocation": "557:14:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2135,
+                  "src": "549:22:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2122,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "549:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "524:48:13"
+            },
+            "returnParameters": {
+              "id": 2125,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "573:0:13"
+            },
+            "scope": 2230,
+            "src": "513:147:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "baseFunctions": [
+              3277
+            ],
+            "body": {
+              "id": 2178,
+              "nodeType": "Block",
+              "src": "1173:289:13",
+              "statements": [
+                {
+                  "assignments": [
+                    2155
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2155,
+                      "mutability": "mutable",
+                      "name": "newGauge",
+                      "nameLocation": "1191:8:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2178,
+                      "src": "1183:16:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 2154,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1183:7:13",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2159,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 2157,
+                        "name": "deployedGauge",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2109,
+                        "src": "1209:13:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2156,
+                      "name": "_clone",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2229,
+                      "src": "1202:6:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$_t_address_$",
+                        "typeString": "function (address) returns (address)"
+                      }
+                    },
+                    "id": 2158,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1202:21:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1183:40:13"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 2161,
+                        "name": "newGauge",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2155,
+                        "src": "1251:8:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2160,
+                      "name": "GaugeCreated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2115,
+                      "src": "1238:12:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 2162,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1238:22:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2163,
+                  "nodeType": "EmitStatement",
+                  "src": "1233:27:13"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 2168,
+                        "name": "_vault",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2138,
+                        "src": "1311:6:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2169,
+                        "name": "yfi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2140,
+                        "src": "1331:3:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2170,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2142,
+                        "src": "1348:5:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2171,
+                        "name": "manager",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2144,
+                        "src": "1367:7:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2172,
+                        "name": "ve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2146,
+                        "src": "1388:2:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2173,
+                        "name": "veYfiRewardPool",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2148,
+                        "src": "1404:15:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 2165,
+                            "name": "newGauge",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2155,
+                            "src": "1277:8:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 2164,
+                          "name": "IGauge",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3258,
+                          "src": "1270:6:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IGauge_$3258_$",
+                            "typeString": "type(contract IGauge)"
+                          }
+                        },
+                        "id": 2166,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1270:16:13",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IGauge_$3258",
+                          "typeString": "contract IGauge"
+                        }
+                      },
+                      "id": 2167,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "initialize",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3238,
+                      "src": "1270:27:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_address_$_t_address_$_t_address_$_t_address_$returns$__$",
+                        "typeString": "function (address,address,address,address,address,address) external"
+                      }
+                    },
+                    "id": 2174,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1270:159:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2175,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1270:159:13"
+                },
+                {
+                  "expression": {
+                    "id": 2176,
+                    "name": "newGauge",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2155,
+                    "src": "1447:8:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 2153,
+                  "id": 2177,
+                  "nodeType": "Return",
+                  "src": "1440:15:13"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 2136,
+              "nodeType": "StructuredDocumentation",
+              "src": "666:293:13",
+              "text": "@notice Create a new reward Gauge clone\n@param _vault the vault address.\n@param yfi the YFI token address.\n@param owner owner\n@param manager manager\n@param ve veYFI\n@param veYfiRewardPool veYfi RewardPool\n@return gauge address"
+            },
+            "functionSelector": "fbb5e204",
+            "id": 2179,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createGauge",
+            "nameLocation": "973:11:13",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 2150,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1146:8:13"
+            },
+            "parameters": {
+              "id": 2149,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2138,
+                  "mutability": "mutable",
+                  "name": "_vault",
+                  "nameLocation": "1002:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "994:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2137,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "994:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2140,
+                  "mutability": "mutable",
+                  "name": "yfi",
+                  "nameLocation": "1026:3:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "1018:11:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2139,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1018:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2142,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nameLocation": "1047:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "1039:13:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2141,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1039:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2144,
+                  "mutability": "mutable",
+                  "name": "manager",
+                  "nameLocation": "1070:7:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "1062:15:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2143,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1062:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2146,
+                  "mutability": "mutable",
+                  "name": "ve",
+                  "nameLocation": "1095:2:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "1087:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2145,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1087:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2148,
+                  "mutability": "mutable",
+                  "name": "veYfiRewardPool",
+                  "nameLocation": "1115:15:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "1107:23:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2147,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "984:152:13"
+            },
+            "returnParameters": {
+              "id": 2153,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2152,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2179,
+                  "src": "1164:7:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2151,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1164:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1163:9:13"
+            },
+            "scope": 2230,
+            "src": "964:498:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 2212,
+              "nodeType": "Block",
+              "src": "1817:215:13",
+              "statements": [
+                {
+                  "assignments": [
+                    2192
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2192,
+                      "mutability": "mutable",
+                      "name": "newExtraReward",
+                      "nameLocation": "1835:14:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2212,
+                      "src": "1827:22:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 2191,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1827:7:13",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2196,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 2194,
+                        "name": "deployedExtra",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2111,
+                        "src": "1859:13:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2193,
+                      "name": "_clone",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2229,
+                      "src": "1852:6:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$_t_address_$",
+                        "typeString": "function (address) returns (address)"
+                      }
+                    },
+                    "id": 2195,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1852:21:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1827:46:13"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 2198,
+                        "name": "newExtraReward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2192,
+                        "src": "1907:14:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2197,
+                      "name": "ExtraRewardCreated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2119,
+                      "src": "1888:18:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 2199,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1888:34:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2200,
+                  "nodeType": "EmitStatement",
+                  "src": "1883:39:13"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 2205,
+                        "name": "gauge",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2182,
+                        "src": "1972:5:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2206,
+                        "name": "reward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2184,
+                        "src": "1979:6:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2207,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2186,
+                        "src": "1987:5:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 2202,
+                            "name": "newExtraReward",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2192,
+                            "src": "1945:14:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 2201,
+                          "name": "IExtraReward",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3218,
+                          "src": "1932:12:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IExtraReward_$3218_$",
+                            "typeString": "type(contract IExtraReward)"
+                          }
+                        },
+                        "id": 2203,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1932:28:13",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IExtraReward_$3218",
+                          "typeString": "contract IExtraReward"
+                        }
+                      },
+                      "id": 2204,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "initialize",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3198,
+                      "src": "1932:39:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_address_$returns$__$",
+                        "typeString": "function (address,address,address) external"
+                      }
+                    },
+                    "id": 2208,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1932:61:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2209,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1932:61:13"
+                },
+                {
+                  "expression": {
+                    "id": 2210,
+                    "name": "newExtraReward",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2192,
+                    "src": "2011:14:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 2190,
+                  "id": 2211,
+                  "nodeType": "Return",
+                  "src": "2004:21:13"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 2180,
+              "nodeType": "StructuredDocumentation",
+              "src": "1468:214:13",
+              "text": "@notice Create ExtraReward clone\n@param gauge the gauge associated with.\n@param reward The token to distribute as a rewards\n@param owner owner \n@return ExtraReward address"
+            },
+            "functionSelector": "a4a70f52",
+            "id": 2213,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createExtraReward",
+            "nameLocation": "1696:17:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2187,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2182,
+                  "mutability": "mutable",
+                  "name": "gauge",
+                  "nameLocation": "1731:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2213,
+                  "src": "1723:13:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2181,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1723:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2184,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nameLocation": "1754:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2213,
+                  "src": "1746:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2183,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1746:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2186,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nameLocation": "1778:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2213,
+                  "src": "1770:13:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2185,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1770:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1713:76:13"
+            },
+            "returnParameters": {
+              "id": 2190,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2189,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2213,
+                  "src": "1808:7:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2188,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1808:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1807:9:13"
+            },
+            "scope": 2230,
+            "src": "1687:345:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 2228,
+              "nodeType": "Block",
+              "src": "2099:501:13",
+              "statements": [
+                {
+                  "assignments": [
+                    2221
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2221,
+                      "mutability": "mutable",
+                      "name": "targetBytes",
+                      "nameLocation": "2117:11:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2228,
+                      "src": "2109:19:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes20",
+                        "typeString": "bytes20"
+                      },
+                      "typeName": {
+                        "id": 2220,
+                        "name": "bytes20",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2109:7:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes20",
+                          "typeString": "bytes20"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2226,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 2224,
+                        "name": "c",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2215,
+                        "src": "2139:1:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2223,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "2131:7:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_bytes20_$",
+                        "typeString": "type(bytes20)"
+                      },
+                      "typeName": {
+                        "id": 2222,
+                        "name": "bytes20",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2131:7:13",
+                        "typeDescriptions": {}
+                      }
+                    },
+                    "id": 2225,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2131:10:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes20",
+                      "typeString": "bytes20"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2109:32:13"
+                },
+                {
+                  "AST": {
+                    "nodeType": "YulBlock",
+                    "src": "2160:434:13",
+                    "statements": [
+                      {
+                        "nodeType": "YulVariableDeclaration",
+                        "src": "2174:24:13",
+                        "value": {
+                          "arguments": [
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2193:4:13",
+                              "type": "",
+                              "value": "0x40"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "mload",
+                            "nodeType": "YulIdentifier",
+                            "src": "2187:5:13"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2187:11:13"
+                        },
+                        "variables": [
+                          {
+                            "name": "clone",
+                            "nodeType": "YulTypedName",
+                            "src": "2178:5:13",
+                            "type": ""
+                          }
+                        ]
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "name": "clone",
+                              "nodeType": "YulIdentifier",
+                              "src": "2235:5:13"
+                            },
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2258:66:13",
+                              "type": "",
+                              "value": "0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000000000000000000000"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "mstore",
+                            "nodeType": "YulIdentifier",
+                            "src": "2211:6:13"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2211:127:13"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "2211:127:13"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "name": "clone",
+                                  "nodeType": "YulIdentifier",
+                                  "src": "2362:5:13"
+                                },
+                                {
+                                  "kind": "number",
+                                  "nodeType": "YulLiteral",
+                                  "src": "2369:4:13",
+                                  "type": "",
+                                  "value": "0x14"
+                                }
+                              ],
+                              "functionName": {
+                                "name": "add",
+                                "nodeType": "YulIdentifier",
+                                "src": "2358:3:13"
+                              },
+                              "nodeType": "YulFunctionCall",
+                              "src": "2358:16:13"
+                            },
+                            {
+                              "name": "targetBytes",
+                              "nodeType": "YulIdentifier",
+                              "src": "2376:11:13"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "mstore",
+                            "nodeType": "YulIdentifier",
+                            "src": "2351:6:13"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2351:37:13"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "2351:37:13"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "name": "clone",
+                                  "nodeType": "YulIdentifier",
+                                  "src": "2429:5:13"
+                                },
+                                {
+                                  "kind": "number",
+                                  "nodeType": "YulLiteral",
+                                  "src": "2436:4:13",
+                                  "type": "",
+                                  "value": "0x28"
+                                }
+                              ],
+                              "functionName": {
+                                "name": "add",
+                                "nodeType": "YulIdentifier",
+                                "src": "2425:3:13"
+                              },
+                              "nodeType": "YulFunctionCall",
+                              "src": "2425:16:13"
+                            },
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2459:66:13",
+                              "type": "",
+                              "value": "0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "mstore",
+                            "nodeType": "YulIdentifier",
+                            "src": "2401:6:13"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2401:138:13"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "2401:138:13"
+                      },
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "2552:32:13",
+                        "value": {
+                          "arguments": [
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2569:1:13",
+                              "type": "",
+                              "value": "0"
+                            },
+                            {
+                              "name": "clone",
+                              "nodeType": "YulIdentifier",
+                              "src": "2572:5:13"
+                            },
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2579:4:13",
+                              "type": "",
+                              "value": "0x37"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "create",
+                            "nodeType": "YulIdentifier",
+                            "src": "2562:6:13"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2562:22:13"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "result",
+                            "nodeType": "YulIdentifier",
+                            "src": "2552:6:13"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "evmVersion": "istanbul",
+                  "externalReferences": [
+                    {
+                      "declaration": 2218,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "2552:6:13",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 2221,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "2376:11:13",
+                      "valueSize": 1
+                    }
+                  ],
+                  "id": 2227,
+                  "nodeType": "InlineAssembly",
+                  "src": "2151:443:13"
+                }
+              ]
+            },
+            "id": 2229,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_clone",
+            "nameLocation": "2047:6:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2215,
+                  "mutability": "mutable",
+                  "name": "c",
+                  "nameLocation": "2062:1:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2229,
+                  "src": "2054:9:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2214,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2054:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2053:11:13"
+            },
+            "returnParameters": {
+              "id": 2219,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2218,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "2091:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2229,
+                  "src": "2083:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2217,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2083:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2082:16:13"
+            },
+            "scope": 2230,
+            "src": "2038:562:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2231,
+        "src": "288:2314:13",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:2571:13"
+  },
+  "bytecode": "60c060405234801561001057600080fd5b506040516104da3803806104da83398101604081905261002f91610062565b6001600160a01b039182166080521660a052610095565b80516001600160a01b038116811461005d57600080fd5b919050565b6000806040838503121561007557600080fd5b61007e83610046565b915061008c60208401610046565b90509250929050565b60805160a0516104156100c56000396000818160ac015260e9015260008181605601526101c801526104156000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063651571db14610051578063a4a70f5214610094578063ef679b60146100a7578063fbb5e204146100ce575b600080fd5b6100787f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200160405180910390f35b6100786100a2366004610328565b6100e1565b6100787f000000000000000000000000000000000000000000000000000000000000000081565b6100786100dc36600461036b565b6101c0565b60008061010d7f00000000000000000000000000000000000000000000000000000000000000006102ba565b6040516001600160a01b03821681529091507f3ae7c53a8ee4d210d6b3e8506e0b6e20d7bea846f3dc1c8842d1ac4cd78e6e689060200160405180910390a160405163c0c53b8b60e01b81526001600160a01b0386811660048301528581166024830152848116604483015282169063c0c53b8b90606401600060405180830381600087803b15801561019f57600080fd5b505af11580156101b3573d6000803e3d6000fd5b5092979650505050505050565b6000806101ec7f00000000000000000000000000000000000000000000000000000000000000006102ba565b6040516001600160a01b03821681529091507faa98436d09d130af48de49867af8b723bbbebb0d737638b5fe8f1bf31bbb71c09060200160405180910390a160405163cc2a9a5b60e01b81526001600160a01b038981166004830152888116602483015287811660448301528681166064830152858116608483015284811660a483015282169063cc2a9a5b9060c401600060405180830381600087803b15801561029657600080fd5b505af11580156102aa573d6000803e3d6000fd5b50929a9950505050505050505050565b6000808260601b9050604051733d602d80600a3d3981f3363d3d373d3d3d363d7360601b81528160148201526e5af43d82803e903d91602b57fd5bf360881b60288201526037816000f0949350505050565b80356001600160a01b038116811461032357600080fd5b919050565b60008060006060848603121561033d57600080fd5b6103468461030c565b92506103546020850161030c565b91506103626040850161030c565b90509250925092565b60008060008060008060c0878903121561038457600080fd5b61038d8761030c565b955061039b6020880161030c565b94506103a96040880161030c565b93506103b76060880161030c565b92506103c56080880161030c565b91506103d360a0880161030c565b9050929550929550929556fea2646970667358221220a1596a9b05678dc797423618bb642b8de5f2c870cd26f65420923d38df1e7fc664736f6c634300080c0033",
+  "bytecodeSha1": "470dce5ec30eed04edbcf50962fd813304428004",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.12+commit.f00d7308"
+  },
+  "contractName": "GaugeFactory",
+  "coverageMap": {
+    "branches": {
+      "13": {},
+      "18": {},
+      "19": {},
+      "20": {}
+    },
+    "statements": {
+      "13": {
+        "GaugeFactory.createExtraReward": {
+          "0": [
+            1883,
+            1922
+          ],
+          "1": [
+            1932,
+            1993
+          ],
+          "2": [
+            2004,
+            2025
+          ]
+        },
+        "GaugeFactory.createGauge": {
+          "3": [
+            1233,
+            1260
+          ],
+          "4": [
+            1270,
+            1429
+          ],
+          "5": [
+            1440,
+            1455
+          ]
+        }
+      },
+      "18": {},
+      "19": {},
+      "20": {}
+    }
+  },
+  "dependencies": [
+    "IExtraReward",
+    "IGauge",
+    "IGaugeFactory"
+  ],
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c8063651571db14610051578063a4a70f5214610094578063ef679b60146100a7578063fbb5e204146100ce575b600080fd5b6100787f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200160405180910390f35b6100786100a2366004610328565b6100e1565b6100787f000000000000000000000000000000000000000000000000000000000000000081565b6100786100dc36600461036b565b6101c0565b60008061010d7f00000000000000000000000000000000000000000000000000000000000000006102ba565b6040516001600160a01b03821681529091507f3ae7c53a8ee4d210d6b3e8506e0b6e20d7bea846f3dc1c8842d1ac4cd78e6e689060200160405180910390a160405163c0c53b8b60e01b81526001600160a01b0386811660048301528581166024830152848116604483015282169063c0c53b8b90606401600060405180830381600087803b15801561019f57600080fd5b505af11580156101b3573d6000803e3d6000fd5b5092979650505050505050565b6000806101ec7f00000000000000000000000000000000000000000000000000000000000000006102ba565b6040516001600160a01b03821681529091507faa98436d09d130af48de49867af8b723bbbebb0d737638b5fe8f1bf31bbb71c09060200160405180910390a160405163cc2a9a5b60e01b81526001600160a01b038981166004830152888116602483015287811660448301528681166064830152858116608483015284811660a483015282169063cc2a9a5b9060c401600060405180830381600087803b15801561029657600080fd5b505af11580156102aa573d6000803e3d6000fd5b50929a9950505050505050505050565b6000808260601b9050604051733d602d80600a3d3981f3363d3d373d3d3d363d7360601b81528160148201526e5af43d82803e903d91602b57fd5bf360881b60288201526037816000f0949350505050565b80356001600160a01b038116811461032357600080fd5b919050565b60008060006060848603121561033d57600080fd5b6103468461030c565b92506103546020850161030c565b91506103626040850161030c565b90509250925092565b60008060008060008060c0878903121561038457600080fd5b61038d8761030c565b955061039b6020880161030c565b94506103a96040880161030c565b93506103b76060880161030c565b92506103c56080880161030c565b91506103d360a0880161030c565b9050929550929550929556fea2646970667358221220a1596a9b05678dc797423618bb642b8de5f2c870cd26f65420923d38df1e7fc664736f6c634300080c0033",
+  "deployedSourceMap": "288:2314:13:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;333:38;;;;;;;;-1:-1:-1;;;;;178:32:25;;;160:51;;148:2;133:18;333:38:13;;;;;;;1687:345;;;;;;:::i;:::-;;:::i;377:38::-;;;;;964:498;;;;;;:::i;:::-;;:::i;1687:345::-;1808:7;1827:22;1852:21;1859:13;1852:6;:21::i;:::-;1888:34;;-1:-1:-1;;;;;178:32:25;;160:51;;1827:46:13;;-1:-1:-1;1888:34:13;;148:2:25;133:18;1888:34:13;;;;;;;1932:61;;-1:-1:-1;;;1932:61:13;;-1:-1:-1;;;;;1561:15:25;;;1932:61:13;;;1543:34:25;1613:15;;;1593:18;;;1586:43;1665:15;;;1645:18;;;1638:43;1932:39:13;;;;;1478:18:25;;1932:61:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;2011:14:13;;1687:345;-1:-1:-1;;;;;;;1687:345:13:o;964:498::-;1164:7;1183:16;1202:21;1209:13;1202:6;:21::i;:::-;1238:22;;-1:-1:-1;;;;;178:32:25;;160:51;;1183:40:13;;-1:-1:-1;1238:22:13;;148:2:25;133:18;1238:22:13;;;;;;;1270:159;;-1:-1:-1;;;1270:159:13;;-1:-1:-1;;;;;2035:15:25;;;1270:159:13;;;2017:34:25;2087:15;;;2067:18;;;2060:43;2139:15;;;2119:18;;;2112:43;2191:15;;;2171:18;;;2164:43;2244:15;;;2223:19;;;2216:44;2297:15;;;2276:19;;;2269:44;1270:27:13;;;;;1951:19:25;;1270:159:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;1447:8:13;;964:498;-1:-1:-1;;;;;;;;;;964:498:13:o;2038:562::-;2083:14;2109:19;2139:1;2131:10;;2109:32;;2193:4;2187:11;-1:-1:-1;;;2235:5:13;2211:127;2376:11;2369:4;2362:5;2358:16;2351:37;-1:-1:-1;;;2436:4:13;2429:5;2425:16;2401:138;2579:4;2572:5;2569:1;2562:22;2552:32;2038:562;-1:-1:-1;;;;2038:562:13:o;222:173:25:-;290:20;;-1:-1:-1;;;;;339:31:25;;329:42;;319:70;;385:1;382;375:12;319:70;222:173;;;:::o;400:334::-;477:6;485;493;546:2;534:9;525:7;521:23;517:32;514:52;;;562:1;559;552:12;514:52;585:29;604:9;585:29;:::i;:::-;575:39;;633:38;667:2;656:9;652:18;633:38;:::i;:::-;623:48;;690:38;724:2;713:9;709:18;690:38;:::i;:::-;680:48;;400:334;;;;;:::o;739:559::-;843:6;851;859;867;875;883;936:3;924:9;915:7;911:23;907:33;904:53;;;953:1;950;943:12;904:53;976:29;995:9;976:29;:::i;:::-;966:39;;1024:38;1058:2;1047:9;1043:18;1024:38;:::i;:::-;1014:48;;1081:38;1115:2;1104:9;1100:18;1081:38;:::i;:::-;1071:48;;1138:38;1172:2;1161:9;1157:18;1138:38;:::i;:::-;1128:48;;1195:39;1229:3;1218:9;1214:19;1195:39;:::i;:::-;1185:49;;1253:39;1287:3;1276:9;1272:19;1253:39;:::i;:::-;1243:49;;739:559;;;;;;;;:::o",
+  "language": "Solidity",
+  "natspec": {
+    "details": "Uses clone to create new contracts",
+    "kind": "dev",
+    "methods": {
+      "createExtraReward(address,address,address)": {
+        "notice": "Create ExtraReward clone",
+        "params": {
+          "gauge": "the gauge associated with.",
+          "owner": "owner ",
+          "reward": "The token to distribute as a rewards"
+        },
+        "returns": {
+          "_0": "ExtraReward address"
+        }
+      },
+      "createGauge(address,address,address,address,address,address)": {
+        "notice": "Create a new reward Gauge clone",
+        "params": {
+          "_vault": "the vault address.",
+          "manager": "manager",
+          "owner": "owner",
+          "ve": "veYFI",
+          "veYfiRewardPool": "veYfi RewardPool",
+          "yfi": "the YFI token address."
+        },
+        "returns": {
+          "_0": "gauge address"
+        }
+      }
+    },
+    "notice": "Creates Gauge and ExtraReward",
+    "title": "GaugeFactory",
+    "version": 1
+  },
+  "offset": [
+    288,
+    2602
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x651571DB EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0xA4A70F52 EQ PUSH2 0x94 JUMPI DUP1 PUSH4 0xEF679B60 EQ PUSH2 0xA7 JUMPI DUP1 PUSH4 0xFBB5E204 EQ PUSH2 0xCE JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x78 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x78 PUSH2 0xA2 CALLDATASIZE PUSH1 0x4 PUSH2 0x328 JUMP JUMPDEST PUSH2 0xE1 JUMP JUMPDEST PUSH2 0x78 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH2 0x78 PUSH2 0xDC CALLDATASIZE PUSH1 0x4 PUSH2 0x36B JUMP JUMPDEST PUSH2 0x1C0 JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH2 0x10D PUSH32 0x0 PUSH2 0x2BA JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND DUP2 MSTORE SWAP1 SWAP2 POP PUSH32 0x3AE7C53A8EE4D210D6B3E8506E0B6E20D7BEA846F3DC1C8842D1AC4CD78E6E68 SWAP1 PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG1 PUSH1 0x40 MLOAD PUSH4 0xC0C53B8B PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP7 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE DUP6 DUP2 AND PUSH1 0x24 DUP4 ADD MSTORE DUP5 DUP2 AND PUSH1 0x44 DUP4 ADD MSTORE DUP3 AND SWAP1 PUSH4 0xC0C53B8B SWAP1 PUSH1 0x64 ADD PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x19F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1B3 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP SWAP3 SWAP8 SWAP7 POP POP POP POP POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH2 0x1EC PUSH32 0x0 PUSH2 0x2BA JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND DUP2 MSTORE SWAP1 SWAP2 POP PUSH32 0xAA98436D09D130AF48DE49867AF8B723BBBEBB0D737638B5FE8F1BF31BBB71C0 SWAP1 PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG1 PUSH1 0x40 MLOAD PUSH4 0xCC2A9A5B PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP10 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE DUP9 DUP2 AND PUSH1 0x24 DUP4 ADD MSTORE DUP8 DUP2 AND PUSH1 0x44 DUP4 ADD MSTORE DUP7 DUP2 AND PUSH1 0x64 DUP4 ADD MSTORE DUP6 DUP2 AND PUSH1 0x84 DUP4 ADD MSTORE DUP5 DUP2 AND PUSH1 0xA4 DUP4 ADD MSTORE DUP3 AND SWAP1 PUSH4 0xCC2A9A5B SWAP1 PUSH1 0xC4 ADD PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x296 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x2AA JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP SWAP3 SWAP11 SWAP10 POP POP POP POP POP POP POP POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 DUP3 PUSH1 0x60 SHL SWAP1 POP PUSH1 0x40 MLOAD PUSH20 0x3D602D80600A3D3981F3363D3D373D3D3D363D73 PUSH1 0x60 SHL DUP2 MSTORE DUP2 PUSH1 0x14 DUP3 ADD MSTORE PUSH15 0x5AF43D82803E903D91602B57FD5BF3 PUSH1 0x88 SHL PUSH1 0x28 DUP3 ADD MSTORE PUSH1 0x37 DUP2 PUSH1 0x0 CREATE SWAP5 SWAP4 POP POP POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x323 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x33D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x346 DUP5 PUSH2 0x30C JUMP JUMPDEST SWAP3 POP PUSH2 0x354 PUSH1 0x20 DUP6 ADD PUSH2 0x30C JUMP JUMPDEST SWAP2 POP PUSH2 0x362 PUSH1 0x40 DUP6 ADD PUSH2 0x30C JUMP JUMPDEST SWAP1 POP SWAP3 POP SWAP3 POP SWAP3 JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0xC0 DUP8 DUP10 SUB SLT ISZERO PUSH2 0x384 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x38D DUP8 PUSH2 0x30C JUMP JUMPDEST SWAP6 POP PUSH2 0x39B PUSH1 0x20 DUP9 ADD PUSH2 0x30C JUMP JUMPDEST SWAP5 POP PUSH2 0x3A9 PUSH1 0x40 DUP9 ADD PUSH2 0x30C JUMP JUMPDEST SWAP4 POP PUSH2 0x3B7 PUSH1 0x60 DUP9 ADD PUSH2 0x30C JUMP JUMPDEST SWAP3 POP PUSH2 0x3C5 PUSH1 0x80 DUP9 ADD PUSH2 0x30C JUMP JUMPDEST SWAP2 POP PUSH2 0x3D3 PUSH1 0xA0 DUP9 ADD PUSH2 0x30C JUMP JUMPDEST SWAP1 POP SWAP3 SWAP6 POP SWAP3 SWAP6 POP SWAP3 SWAP6 JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 LOG1 MSIZE PUSH11 0x9B05678DC797423618BB64 0x2B DUP14 0xE5 CALLCODE 0xC8 PUSH17 0xCD26F65420923D38DF1E7FC664736F6C63 NUMBER STOP ADDMOD 0xC STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "MSTORE",
+      "path": "13"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "CALLVALUE",
+      "path": "13"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x10"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "14": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "REVERT",
+      "path": "13"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "POP",
+      "path": "13"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "CALLDATASIZE",
+      "path": "13"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "LT",
+      "path": "13"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x4C"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "CALLDATALOAD",
+      "path": "13"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "SHR",
+      "path": "13"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH4",
+      "path": "13",
+      "value": "0x651571DB"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "EQ",
+      "path": "13"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x51"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH4",
+      "path": "13",
+      "value": "0xA4A70F52"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "EQ",
+      "path": "13"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x94"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH4",
+      "path": "13",
+      "value": "0xEF679B60"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "EQ",
+      "path": "13"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0xA7"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "66": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH4",
+      "path": "13",
+      "value": "0xFBB5E204"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "EQ",
+      "path": "13"
+    },
+    "72": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0xCE"
+    },
+    "75": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "79": {
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "80": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        288,
+        2602
+      ],
+      "op": "REVERT",
+      "path": "13"
+    },
+    "81": {
+      "offset": [
+        333,
+        371
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "82": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x78"
+    },
+    "85": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "PUSH32",
+      "path": "13",
+      "value": "0x0"
+    },
+    "118": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "119": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "120": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "121": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "123": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "124": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "126": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "128": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "130": {
+      "op": "SHL"
+    },
+    "131": {
+      "op": "SUB"
+    },
+    "132": {
+      "op": "SWAP1"
+    },
+    "133": {
+      "op": "SWAP2"
+    },
+    "134": {
+      "op": "AND"
+    },
+    "135": {
+      "op": "DUP2"
+    },
+    "136": {
+      "op": "MSTORE"
+    },
+    "137": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "139": {
+      "op": "ADD"
+    },
+    "140": {
+      "offset": [
+        333,
+        371
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "142": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "143": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "144": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "SWAP2",
+      "path": "13"
+    },
+    "145": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "SUB",
+      "path": "13"
+    },
+    "146": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "147": {
+      "fn": null,
+      "offset": [
+        333,
+        371
+      ],
+      "op": "RETURN",
+      "path": "13"
+    },
+    "148": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "149": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x78"
+    },
+    "152": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0xA2"
+    },
+    "155": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "CALLDATASIZE",
+      "path": "13"
+    },
+    "156": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x4"
+    },
+    "158": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x328"
+    },
+    "161": {
+      "fn": "GaugeFactory.createExtraReward",
+      "jump": "i",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "162": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "163": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0xE1"
+    },
+    "166": {
+      "fn": "GaugeFactory.createExtraReward",
+      "jump": "i",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "167": {
+      "offset": [
+        377,
+        415
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "168": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        377,
+        415
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x78"
+    },
+    "171": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        377,
+        415
+      ],
+      "op": "PUSH32",
+      "path": "13",
+      "value": "0x0"
+    },
+    "204": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        377,
+        415
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "205": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        377,
+        415
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "206": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "207": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x78"
+    },
+    "210": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0xDC"
+    },
+    "213": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "CALLDATASIZE",
+      "path": "13"
+    },
+    "214": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x4"
+    },
+    "216": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x36B"
+    },
+    "219": {
+      "fn": "GaugeFactory.createGauge",
+      "jump": "i",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "220": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "221": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x1C0"
+    },
+    "224": {
+      "fn": "GaugeFactory.createGauge",
+      "jump": "i",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "225": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "226": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1808,
+        1815
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "228": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1827,
+        1849
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "229": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1852,
+        1873
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x10D"
+    },
+    "232": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1859,
+        1872
+      ],
+      "op": "PUSH32",
+      "path": "13",
+      "value": "0x0"
+    },
+    "265": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1852,
+        1858
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x2BA"
+    },
+    "268": {
+      "fn": "GaugeFactory.createExtraReward",
+      "jump": "i",
+      "offset": [
+        1852,
+        1873
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "269": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1852,
+        1873
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "270": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "statement": 0,
+      "value": "0x40"
+    },
+    "272": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "273": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "275": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "277": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "279": {
+      "op": "SHL"
+    },
+    "280": {
+      "op": "SUB"
+    },
+    "281": {
+      "op": "DUP3"
+    },
+    "282": {
+      "op": "AND"
+    },
+    "283": {
+      "op": "DUP2"
+    },
+    "284": {
+      "op": "MSTORE"
+    },
+    "285": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1827,
+        1873
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "286": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1827,
+        1873
+      ],
+      "op": "SWAP2",
+      "path": "13"
+    },
+    "287": {
+      "op": "POP"
+    },
+    "288": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "PUSH32",
+      "path": "13",
+      "value": "0x3AE7C53A8EE4D210D6B3E8506E0B6E20D7BEA846F3DC1C8842D1AC4CD78E6E68"
+    },
+    "321": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "322": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "324": {
+      "op": "ADD"
+    },
+    "325": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "327": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "328": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "329": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "SWAP2",
+      "path": "13"
+    },
+    "330": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "SUB",
+      "path": "13"
+    },
+    "331": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "332": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1888,
+        1922
+      ],
+      "op": "LOG1",
+      "path": "13"
+    },
+    "333": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "statement": 1,
+      "value": "0x40"
+    },
+    "335": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "336": {
+      "op": "PUSH4",
+      "value": "0xC0C53B8B"
+    },
+    "341": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "343": {
+      "op": "SHL"
+    },
+    "344": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "345": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "MSTORE",
+      "path": "13"
+    },
+    "346": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "348": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "350": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "352": {
+      "op": "SHL"
+    },
+    "353": {
+      "op": "SUB"
+    },
+    "354": {
+      "op": "DUP7"
+    },
+    "355": {
+      "op": "DUP2"
+    },
+    "356": {
+      "op": "AND"
+    },
+    "357": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x4"
+    },
+    "359": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP4",
+      "path": "13"
+    },
+    "360": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "ADD",
+      "path": "13"
+    },
+    "361": {
+      "op": "MSTORE"
+    },
+    "362": {
+      "op": "DUP6"
+    },
+    "363": {
+      "op": "DUP2"
+    },
+    "364": {
+      "op": "AND"
+    },
+    "365": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "367": {
+      "op": "DUP4"
+    },
+    "368": {
+      "op": "ADD"
+    },
+    "369": {
+      "op": "MSTORE"
+    },
+    "370": {
+      "op": "DUP5"
+    },
+    "371": {
+      "op": "DUP2"
+    },
+    "372": {
+      "op": "AND"
+    },
+    "373": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "375": {
+      "op": "DUP4"
+    },
+    "376": {
+      "op": "ADD"
+    },
+    "377": {
+      "op": "MSTORE"
+    },
+    "378": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1971
+      ],
+      "op": "DUP3",
+      "path": "13"
+    },
+    "379": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1971
+      ],
+      "op": "AND",
+      "path": "13"
+    },
+    "380": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1971
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "381": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1971
+      ],
+      "op": "PUSH4",
+      "path": "13",
+      "value": "0xC0C53B8B"
+    },
+    "386": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1971
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "387": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "389": {
+      "op": "ADD"
+    },
+    "390": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "392": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "394": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "395": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "396": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP4",
+      "path": "13"
+    },
+    "397": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "SUB",
+      "path": "13"
+    },
+    "398": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "399": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "401": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP8",
+      "path": "13"
+    },
+    "402": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "403": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "EXTCODESIZE",
+      "path": "13"
+    },
+    "404": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "405": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "406": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "407": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x19F"
+    },
+    "410": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "411": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "413": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "414": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "REVERT",
+      "path": "13"
+    },
+    "415": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "416": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "POP",
+      "path": "13"
+    },
+    "417": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "GAS",
+      "path": "13"
+    },
+    "418": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "CALL",
+      "path": "13"
+    },
+    "419": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "420": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "421": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "422": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x1B3"
+    },
+    "425": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "426": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "13"
+    },
+    "427": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "429": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "430": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "13"
+    },
+    "431": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "13"
+    },
+    "432": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "434": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "REVERT",
+      "path": "13"
+    },
+    "435": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1932,
+        1993
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "436": {
+      "op": "POP"
+    },
+    "437": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        2011,
+        2025
+      ],
+      "op": "SWAP3",
+      "path": "13",
+      "statement": 2
+    },
+    "438": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        2011,
+        2025
+      ],
+      "op": "SWAP8",
+      "path": "13"
+    },
+    "439": {
+      "fn": "GaugeFactory.createExtraReward",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "SWAP7",
+      "path": "13"
+    },
+    "440": {
+      "op": "POP"
+    },
+    "441": {
+      "op": "POP"
+    },
+    "442": {
+      "op": "POP"
+    },
+    "443": {
+      "op": "POP"
+    },
+    "444": {
+      "op": "POP"
+    },
+    "445": {
+      "op": "POP"
+    },
+    "446": {
+      "op": "POP"
+    },
+    "447": {
+      "fn": "GaugeFactory.createExtraReward",
+      "jump": "o",
+      "offset": [
+        1687,
+        2032
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "448": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "449": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1164,
+        1171
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "451": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1183,
+        1199
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "452": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1202,
+        1223
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x1EC"
+    },
+    "455": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1209,
+        1222
+      ],
+      "op": "PUSH32",
+      "path": "13",
+      "value": "0x0"
+    },
+    "488": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1202,
+        1208
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x2BA"
+    },
+    "491": {
+      "fn": "GaugeFactory.createGauge",
+      "jump": "i",
+      "offset": [
+        1202,
+        1223
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "492": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1202,
+        1223
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "493": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "statement": 3,
+      "value": "0x40"
+    },
+    "495": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "496": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "498": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "500": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "502": {
+      "op": "SHL"
+    },
+    "503": {
+      "op": "SUB"
+    },
+    "504": {
+      "op": "DUP3"
+    },
+    "505": {
+      "op": "AND"
+    },
+    "506": {
+      "op": "DUP2"
+    },
+    "507": {
+      "op": "MSTORE"
+    },
+    "508": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1183,
+        1223
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "509": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1183,
+        1223
+      ],
+      "op": "SWAP2",
+      "path": "13"
+    },
+    "510": {
+      "op": "POP"
+    },
+    "511": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "PUSH32",
+      "path": "13",
+      "value": "0xAA98436D09D130AF48DE49867AF8B723BBBEBB0D737638B5FE8F1BF31BBB71C0"
+    },
+    "544": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "545": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "547": {
+      "op": "ADD"
+    },
+    "548": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "550": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "551": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "552": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "SWAP2",
+      "path": "13"
+    },
+    "553": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "SUB",
+      "path": "13"
+    },
+    "554": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "555": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1238,
+        1260
+      ],
+      "op": "LOG1",
+      "path": "13"
+    },
+    "556": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "statement": 4,
+      "value": "0x40"
+    },
+    "558": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "559": {
+      "op": "PUSH4",
+      "value": "0xCC2A9A5B"
+    },
+    "564": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "566": {
+      "op": "SHL"
+    },
+    "567": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "568": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "MSTORE",
+      "path": "13"
+    },
+    "569": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "571": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "573": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "575": {
+      "op": "SHL"
+    },
+    "576": {
+      "op": "SUB"
+    },
+    "577": {
+      "op": "DUP10"
+    },
+    "578": {
+      "op": "DUP2"
+    },
+    "579": {
+      "op": "AND"
+    },
+    "580": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x4"
+    },
+    "582": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP4",
+      "path": "13"
+    },
+    "583": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "ADD",
+      "path": "13"
+    },
+    "584": {
+      "op": "MSTORE"
+    },
+    "585": {
+      "op": "DUP9"
+    },
+    "586": {
+      "op": "DUP2"
+    },
+    "587": {
+      "op": "AND"
+    },
+    "588": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "590": {
+      "op": "DUP4"
+    },
+    "591": {
+      "op": "ADD"
+    },
+    "592": {
+      "op": "MSTORE"
+    },
+    "593": {
+      "op": "DUP8"
+    },
+    "594": {
+      "op": "DUP2"
+    },
+    "595": {
+      "op": "AND"
+    },
+    "596": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "598": {
+      "op": "DUP4"
+    },
+    "599": {
+      "op": "ADD"
+    },
+    "600": {
+      "op": "MSTORE"
+    },
+    "601": {
+      "op": "DUP7"
+    },
+    "602": {
+      "op": "DUP2"
+    },
+    "603": {
+      "op": "AND"
+    },
+    "604": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "606": {
+      "op": "DUP4"
+    },
+    "607": {
+      "op": "ADD"
+    },
+    "608": {
+      "op": "MSTORE"
+    },
+    "609": {
+      "op": "DUP6"
+    },
+    "610": {
+      "op": "DUP2"
+    },
+    "611": {
+      "op": "AND"
+    },
+    "612": {
+      "op": "PUSH1",
+      "value": "0x84"
+    },
+    "614": {
+      "op": "DUP4"
+    },
+    "615": {
+      "op": "ADD"
+    },
+    "616": {
+      "op": "MSTORE"
+    },
+    "617": {
+      "op": "DUP5"
+    },
+    "618": {
+      "op": "DUP2"
+    },
+    "619": {
+      "op": "AND"
+    },
+    "620": {
+      "op": "PUSH1",
+      "value": "0xA4"
+    },
+    "622": {
+      "op": "DUP4"
+    },
+    "623": {
+      "op": "ADD"
+    },
+    "624": {
+      "op": "MSTORE"
+    },
+    "625": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1297
+      ],
+      "op": "DUP3",
+      "path": "13"
+    },
+    "626": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1297
+      ],
+      "op": "AND",
+      "path": "13"
+    },
+    "627": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1297
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "628": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1297
+      ],
+      "op": "PUSH4",
+      "path": "13",
+      "value": "0xCC2A9A5B"
+    },
+    "633": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1297
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "634": {
+      "op": "PUSH1",
+      "value": "0xC4"
+    },
+    "636": {
+      "op": "ADD"
+    },
+    "637": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "639": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "641": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "642": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "643": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP4",
+      "path": "13"
+    },
+    "644": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "SUB",
+      "path": "13"
+    },
+    "645": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "646": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "648": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP8",
+      "path": "13"
+    },
+    "649": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "650": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "EXTCODESIZE",
+      "path": "13"
+    },
+    "651": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "652": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "653": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "654": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x296"
+    },
+    "657": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "658": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "660": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "661": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "REVERT",
+      "path": "13"
+    },
+    "662": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "663": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "POP",
+      "path": "13"
+    },
+    "664": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "GAS",
+      "path": "13"
+    },
+    "665": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "CALL",
+      "path": "13"
+    },
+    "666": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "667": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "668": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "ISZERO",
+      "path": "13"
+    },
+    "669": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH2",
+      "path": "13",
+      "value": "0x2AA"
+    },
+    "672": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "JUMPI",
+      "path": "13"
+    },
+    "673": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "13"
+    },
+    "674": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "676": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "677": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "13"
+    },
+    "678": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "13"
+    },
+    "679": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "681": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "REVERT",
+      "path": "13"
+    },
+    "682": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1270,
+        1429
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "683": {
+      "op": "POP"
+    },
+    "684": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1447,
+        1455
+      ],
+      "op": "SWAP3",
+      "path": "13",
+      "statement": 5
+    },
+    "685": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        1447,
+        1455
+      ],
+      "op": "SWAP11",
+      "path": "13"
+    },
+    "686": {
+      "fn": "GaugeFactory.createGauge",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "SWAP10",
+      "path": "13"
+    },
+    "687": {
+      "op": "POP"
+    },
+    "688": {
+      "op": "POP"
+    },
+    "689": {
+      "op": "POP"
+    },
+    "690": {
+      "op": "POP"
+    },
+    "691": {
+      "op": "POP"
+    },
+    "692": {
+      "op": "POP"
+    },
+    "693": {
+      "op": "POP"
+    },
+    "694": {
+      "op": "POP"
+    },
+    "695": {
+      "op": "POP"
+    },
+    "696": {
+      "op": "POP"
+    },
+    "697": {
+      "fn": "GaugeFactory.createGauge",
+      "jump": "o",
+      "offset": [
+        964,
+        1462
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "698": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2038,
+        2600
+      ],
+      "op": "JUMPDEST",
+      "path": "13"
+    },
+    "699": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2083,
+        2097
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "701": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2109,
+        2128
+      ],
+      "op": "DUP1",
+      "path": "13"
+    },
+    "702": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2139,
+        2140
+      ],
+      "op": "DUP3",
+      "path": "13"
+    },
+    "703": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2131,
+        2141
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x60"
+    },
+    "705": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2131,
+        2141
+      ],
+      "op": "SHL",
+      "path": "13"
+    },
+    "706": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2109,
+        2141
+      ],
+      "op": "SWAP1",
+      "path": "13"
+    },
+    "707": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2109,
+        2141
+      ],
+      "op": "POP",
+      "path": "13"
+    },
+    "708": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2193,
+        2197
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x40"
+    },
+    "710": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2187,
+        2198
+      ],
+      "op": "MLOAD",
+      "path": "13"
+    },
+    "711": {
+      "op": "PUSH20",
+      "value": "0x3D602D80600A3D3981F3363D3D373D3D3D363D73"
+    },
+    "732": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "734": {
+      "op": "SHL"
+    },
+    "735": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2235,
+        2240
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "736": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2211,
+        2338
+      ],
+      "op": "MSTORE",
+      "path": "13"
+    },
+    "737": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2376,
+        2387
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "738": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2369,
+        2373
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x14"
+    },
+    "740": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2362,
+        2367
+      ],
+      "op": "DUP3",
+      "path": "13"
+    },
+    "741": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2358,
+        2374
+      ],
+      "op": "ADD",
+      "path": "13"
+    },
+    "742": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2351,
+        2388
+      ],
+      "op": "MSTORE",
+      "path": "13"
+    },
+    "743": {
+      "op": "PUSH15",
+      "value": "0x5AF43D82803E903D91602B57FD5BF3"
+    },
+    "759": {
+      "op": "PUSH1",
+      "value": "0x88"
+    },
+    "761": {
+      "op": "SHL"
+    },
+    "762": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2436,
+        2440
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x28"
+    },
+    "764": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2429,
+        2434
+      ],
+      "op": "DUP3",
+      "path": "13"
+    },
+    "765": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2425,
+        2441
+      ],
+      "op": "ADD",
+      "path": "13"
+    },
+    "766": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2401,
+        2539
+      ],
+      "op": "MSTORE",
+      "path": "13"
+    },
+    "767": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2579,
+        2583
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x37"
+    },
+    "769": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2572,
+        2577
+      ],
+      "op": "DUP2",
+      "path": "13"
+    },
+    "770": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2569,
+        2570
+      ],
+      "op": "PUSH1",
+      "path": "13",
+      "value": "0x0"
+    },
+    "772": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2562,
+        2584
+      ],
+      "op": "CREATE",
+      "path": "13"
+    },
+    "773": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2552,
+        2584
+      ],
+      "op": "SWAP5",
+      "path": "13"
+    },
+    "774": {
+      "fn": "GaugeFactory._clone",
+      "offset": [
+        2038,
+        2600
+      ],
+      "op": "SWAP4",
+      "path": "13"
+    },
+    "775": {
+      "op": "POP"
+    },
+    "776": {
+      "op": "POP"
+    },
+    "777": {
+      "op": "POP"
+    },
+    "778": {
+      "op": "POP"
+    },
+    "779": {
+      "fn": "GaugeFactory._clone",
+      "jump": "o",
+      "offset": [
+        2038,
+        2600
+      ],
+      "op": "JUMP",
+      "path": "13"
+    },
+    "780": {
+      "op": "JUMPDEST"
+    },
+    "781": {
+      "op": "DUP1"
+    },
+    "782": {
+      "op": "CALLDATALOAD"
+    },
+    "783": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "785": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "787": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "789": {
+      "op": "SHL"
+    },
+    "790": {
+      "op": "SUB"
+    },
+    "791": {
+      "op": "DUP2"
+    },
+    "792": {
+      "op": "AND"
+    },
+    "793": {
+      "op": "DUP2"
+    },
+    "794": {
+      "op": "EQ"
+    },
+    "795": {
+      "op": "PUSH2",
+      "value": "0x323"
+    },
+    "798": {
+      "op": "JUMPI"
+    },
+    "799": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "801": {
+      "op": "DUP1"
+    },
+    "802": {
+      "op": "REVERT"
+    },
+    "803": {
+      "op": "JUMPDEST"
+    },
+    "804": {
+      "op": "SWAP2"
+    },
+    "805": {
+      "op": "SWAP1"
+    },
+    "806": {
+      "op": "POP"
+    },
+    "807": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "808": {
+      "op": "JUMPDEST"
+    },
+    "809": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "811": {
+      "op": "DUP1"
+    },
+    "812": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "814": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "816": {
+      "op": "DUP5"
+    },
+    "817": {
+      "op": "DUP7"
+    },
+    "818": {
+      "op": "SUB"
+    },
+    "819": {
+      "op": "SLT"
+    },
+    "820": {
+      "op": "ISZERO"
+    },
+    "821": {
+      "op": "PUSH2",
+      "value": "0x33D"
+    },
+    "824": {
+      "op": "JUMPI"
+    },
+    "825": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "827": {
+      "op": "DUP1"
+    },
+    "828": {
+      "op": "REVERT"
+    },
+    "829": {
+      "op": "JUMPDEST"
+    },
+    "830": {
+      "op": "PUSH2",
+      "value": "0x346"
+    },
+    "833": {
+      "op": "DUP5"
+    },
+    "834": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "837": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "838": {
+      "op": "JUMPDEST"
+    },
+    "839": {
+      "op": "SWAP3"
+    },
+    "840": {
+      "op": "POP"
+    },
+    "841": {
+      "op": "PUSH2",
+      "value": "0x354"
+    },
+    "844": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "846": {
+      "op": "DUP6"
+    },
+    "847": {
+      "op": "ADD"
+    },
+    "848": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "851": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "852": {
+      "op": "JUMPDEST"
+    },
+    "853": {
+      "op": "SWAP2"
+    },
+    "854": {
+      "op": "POP"
+    },
+    "855": {
+      "op": "PUSH2",
+      "value": "0x362"
+    },
+    "858": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "860": {
+      "op": "DUP6"
+    },
+    "861": {
+      "op": "ADD"
+    },
+    "862": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "865": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "866": {
+      "op": "JUMPDEST"
+    },
+    "867": {
+      "op": "SWAP1"
+    },
+    "868": {
+      "op": "POP"
+    },
+    "869": {
+      "op": "SWAP3"
+    },
+    "870": {
+      "op": "POP"
+    },
+    "871": {
+      "op": "SWAP3"
+    },
+    "872": {
+      "op": "POP"
+    },
+    "873": {
+      "op": "SWAP3"
+    },
+    "874": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "875": {
+      "op": "JUMPDEST"
+    },
+    "876": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "878": {
+      "op": "DUP1"
+    },
+    "879": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "881": {
+      "op": "DUP1"
+    },
+    "882": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "884": {
+      "op": "DUP1"
+    },
+    "885": {
+      "op": "PUSH1",
+      "value": "0xC0"
+    },
+    "887": {
+      "op": "DUP8"
+    },
+    "888": {
+      "op": "DUP10"
+    },
+    "889": {
+      "op": "SUB"
+    },
+    "890": {
+      "op": "SLT"
+    },
+    "891": {
+      "op": "ISZERO"
+    },
+    "892": {
+      "op": "PUSH2",
+      "value": "0x384"
+    },
+    "895": {
+      "op": "JUMPI"
+    },
+    "896": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "898": {
+      "op": "DUP1"
+    },
+    "899": {
+      "op": "REVERT"
+    },
+    "900": {
+      "op": "JUMPDEST"
+    },
+    "901": {
+      "op": "PUSH2",
+      "value": "0x38D"
+    },
+    "904": {
+      "op": "DUP8"
+    },
+    "905": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "908": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "909": {
+      "op": "JUMPDEST"
+    },
+    "910": {
+      "op": "SWAP6"
+    },
+    "911": {
+      "op": "POP"
+    },
+    "912": {
+      "op": "PUSH2",
+      "value": "0x39B"
+    },
+    "915": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "917": {
+      "op": "DUP9"
+    },
+    "918": {
+      "op": "ADD"
+    },
+    "919": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "922": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "923": {
+      "op": "JUMPDEST"
+    },
+    "924": {
+      "op": "SWAP5"
+    },
+    "925": {
+      "op": "POP"
+    },
+    "926": {
+      "op": "PUSH2",
+      "value": "0x3A9"
+    },
+    "929": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "931": {
+      "op": "DUP9"
+    },
+    "932": {
+      "op": "ADD"
+    },
+    "933": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "936": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "937": {
+      "op": "JUMPDEST"
+    },
+    "938": {
+      "op": "SWAP4"
+    },
+    "939": {
+      "op": "POP"
+    },
+    "940": {
+      "op": "PUSH2",
+      "value": "0x3B7"
+    },
+    "943": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "945": {
+      "op": "DUP9"
+    },
+    "946": {
+      "op": "ADD"
+    },
+    "947": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "950": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "951": {
+      "op": "JUMPDEST"
+    },
+    "952": {
+      "op": "SWAP3"
+    },
+    "953": {
+      "op": "POP"
+    },
+    "954": {
+      "op": "PUSH2",
+      "value": "0x3C5"
+    },
+    "957": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "959": {
+      "op": "DUP9"
+    },
+    "960": {
+      "op": "ADD"
+    },
+    "961": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "964": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "965": {
+      "op": "JUMPDEST"
+    },
+    "966": {
+      "op": "SWAP2"
+    },
+    "967": {
+      "op": "POP"
+    },
+    "968": {
+      "op": "PUSH2",
+      "value": "0x3D3"
+    },
+    "971": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "973": {
+      "op": "DUP9"
+    },
+    "974": {
+      "op": "ADD"
+    },
+    "975": {
+      "op": "PUSH2",
+      "value": "0x30C"
+    },
+    "978": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "979": {
+      "op": "JUMPDEST"
+    },
+    "980": {
+      "op": "SWAP1"
+    },
+    "981": {
+      "op": "POP"
+    },
+    "982": {
+      "op": "SWAP3"
+    },
+    "983": {
+      "op": "SWAP6"
+    },
+    "984": {
+      "op": "POP"
+    },
+    "985": {
+      "op": "SWAP3"
+    },
+    "986": {
+      "op": "SWAP6"
+    },
+    "987": {
+      "op": "POP"
+    },
+    "988": {
+      "op": "SWAP3"
+    },
+    "989": {
+      "op": "SWAP6"
+    },
+    "990": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "9ef8c19e54d984f6e293c75d1914bec7eba803a8",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.12;\n\nimport \"./interfaces/IGauge.sol\";\nimport \"./interfaces/IExtraReward.sol\";\nimport \"./interfaces/IGaugeFactory.sol\";\n\n/** @title  GaugeFactory\n    @notice Creates Gauge and ExtraReward\n    @dev Uses clone to create new contracts\n */\ncontract GaugeFactory is IGaugeFactory {\n    address public immutable deployedGauge;\n    address public immutable deployedExtra;\n\n    event GaugeCreated(address gauge);\n    event ExtraRewardCreated(address extraReward);\n\n    constructor(address _deployedGauge, address _deployedExtra) {\n        deployedGauge = _deployedGauge;\n        deployedExtra = _deployedExtra;\n    }\n\n    /** @notice Create a new reward Gauge clone\n        @param _vault the vault address.\n        @param yfi the YFI token address.\n        @param owner owner\n        @param manager manager\n        @param ve veYFI\n        @param veYfiRewardPool veYfi RewardPool\n        @return gauge address\n    */\n    function createGauge(\n        address _vault,\n        address yfi,\n        address owner,\n        address manager,\n        address ve,\n        address veYfiRewardPool\n    ) external override returns (address) {\n        address newGauge = _clone(deployedGauge);\n        emit GaugeCreated(newGauge);\n        IGauge(newGauge).initialize(\n            _vault,\n            yfi,\n            owner,\n            manager,\n            ve,\n            veYfiRewardPool\n        );\n\n        return newGauge;\n    }\n\n    /** @notice Create ExtraReward clone\n        @param gauge the gauge associated with.\n        @param reward The token to distribute as a rewards\n        @param owner owner \n        @return ExtraReward address\n    */\n    function createExtraReward(\n        address gauge,\n        address reward,\n        address owner\n    ) external returns (address) {\n        address newExtraReward = _clone(deployedExtra);\n        emit ExtraRewardCreated(newExtraReward);\n        IExtraReward(newExtraReward).initialize(gauge, reward, owner);\n\n        return newExtraReward;\n    }\n\n    function _clone(address c) internal returns (address result) {\n        bytes20 targetBytes = bytes20(c);\n        assembly {\n            let clone := mload(0x40)\n            mstore(\n                clone,\n                0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000000000000000000000\n            )\n            mstore(add(clone, 0x14), targetBytes)\n            mstore(\n                add(clone, 0x28),\n                0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000\n            )\n            result := create(0, clone, 0x37)\n        }\n    }\n}\n",
+  "sourceMap": "288:2314:13:-:0;;;513:147;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;583:30:13;;;;;623;;;288:2314;;14:177:25;93:13;;-1:-1:-1;;;;;135:31:25;;125:42;;115:70;;181:1;178;171:12;115:70;14:177;;;:::o;196:293::-;275:6;283;336:2;324:9;315:7;311:23;307:32;304:52;;;352:1;349;342:12;304:52;375:40;405:9;375:40;:::i;:::-;365:50;;434:49;479:2;468:9;464:18;434:49;:::i;:::-;424:59;;196:293;;;;;:::o;:::-;288:2314:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/GaugeFactory.sol",
+  "type": "contract"
+}

@@ -1,0 +1,990 @@
+{
+  "contracts": {
+    "ExtendedDSTest": "10ca3a13cd43437099f0dd9a38a3fcdf7d861da5",
+    "ExtraReward": "0c40126e8fb26983fb9e0bfa6c41423356e2e770",
+    "Gauge": "268b2ccc9915d585125c70d5764d1284a9f03d6f",
+    "GaugeFactory": "470dce5ec30eed04edbcf50962fd813304428004",
+    "NextVe": "6d048ccc2ede8a2d2585cb326092307fbb8df3ea",
+    "OpenZeppelin/openzeppelin-contracts@4.5.0/Address": "1ce946f6a4eaa185320328620ccf999b9e86db7c",
+    "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20": "15aeefd481ce94e0891603de0eb35048b803d199",
+    "OpenZeppelin/openzeppelin-contracts@4.5.0/EnumerableSet": "1ce946f6a4eaa185320328620ccf999b9e86db7c",
+    "OpenZeppelin/openzeppelin-contracts@4.5.0/Math": "1ce946f6a4eaa185320328620ccf999b9e86db7c",
+    "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20": "1ce946f6a4eaa185320328620ccf999b9e86db7c",
+    "Registry": "8a6f5483f4f4b5002c567ca99a90e3b3d31580fd",
+    "TestFixture": "64f04d353c0649a4e2c49495b77e3c241efe6daf",
+    "Token": "285ecad383e98d135b029b4010f0db470b346086",
+    "VeTest": "09964cd1d23a2a2ab77fef9de8a992143a3f1da5",
+    "VeYfiRewards": "c060ccfa38ba2822832b03968a002fa49b175d36",
+    "VoteDelegation": "1f58284a4649ee1ec63c9f62404a47b87cd394f8",
+    "VotingEscrow": "08c9c49913bc6b5078bccfe5046c3220ce589705"
+  },
+  "tests": {
+    "tests/functional/test_extra_rewards.py": {
+      "coverage": false,
+      "isolated": [
+        "ExtraReward",
+        "Gauge",
+        "GaugeFactory",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Address",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/EnumerableSet",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Math",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20",
+        "Registry",
+        "Token",
+        "VeYfiRewards",
+        "VotingEscrow"
+      ],
+      "results": "......",
+      "sha1": "d72b310f9881a48d6f30005240ccb343e6f4b560",
+      "txhash": [
+        "07338efedfb6d60a71b573e478197058880aece3",
+        "172dd383b4d7198e08c710f291b2e7e6767d82d8",
+        "59b2947800e43166bda5bd2be43fa41532a2e6a4",
+        "6efed3a3858f5dbffed49a496c2b7b6220032c76"
+      ]
+    },
+    "tests/functional/test_gauge.py": {
+      "coverage": false,
+      "isolated": [
+        "ExtraReward",
+        "Gauge",
+        "GaugeFactory",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Address",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/EnumerableSet",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Math",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20",
+        "Registry",
+        "Token",
+        "VeYfiRewards",
+        "VotingEscrow"
+      ],
+      "results": "........",
+      "sha1": "d3d7fed24bcfcec7378bb5b6b813fcdba5b9927b",
+      "txhash": [
+        "0041d1888a86beee5659ed1f56aa0b077b06aabc",
+        "1668c9ab388bca33a99e6dfb397f64faf28feeea",
+        "21ba6f42942a683e841f54a6043207ea86a8ca9b",
+        "2ab410e94474e7a7eee1e932445422e7b90169cf",
+        "79df12f6981c5c8b4e5b0423ceb26a71440a6a22",
+        "7e2ab2ff1da6e7971b21b556eea184f748b3cb37",
+        "a0930c50d725c737895049eca20036804030b827",
+        "b349632fcc8deaed7fb78383ec91cd6daf1217a5",
+        "b5541c8ace33d4fd62d60a55981601648e4c7bc6",
+        "c76b063ef8dae2d464ea3eaa3a8ca79475e09d51",
+        "df598f98f2f6795d5478043388720c5b058f8fba",
+        "efae2f0ee89cfd4f573653ea0d175e3c2add6799"
+      ]
+    },
+    "tests/functional/test_gauge_reward_distribution.py": {
+      "coverage": false,
+      "isolated": [
+        "ExtraReward",
+        "Gauge",
+        "GaugeFactory",
+        "NextVe",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Address",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/EnumerableSet",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Math",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20",
+        "Registry",
+        "Token",
+        "VeYfiRewards",
+        "VotingEscrow"
+      ],
+      "results": ".........",
+      "sha1": "595303350467b8cba795ce03feb329c2d188d948",
+      "txhash": [
+        "3c949fc7810f433b1e62af23fb10bae7f643caed",
+        "84c7709a34b9e6e2f7695239ccca90c3b077fd1c"
+      ]
+    },
+    "tests/functional/test_ve_yfi_rewards.py": {
+      "coverage": false,
+      "isolated": [
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Address",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20",
+        "Token",
+        "VeYfiRewards",
+        "VotingEscrow"
+      ],
+      "results": ".......",
+      "sha1": "67bc90440344c75d0f7691b9208f47781fe8e685",
+      "txhash": [
+        "4b497595d88f3f684efc190f2c0f6e72b1ed00f3",
+        "91bc5a6057e6c7c943794aa40bbcd4c772894347",
+        "cf77d1723f0d0c8afb417d4adaf90ba0beacd441",
+        "d3c0a6f1df91cf76e4fc58d9684be7c59924ec75",
+        "d532d0828894e9758c71fd31ca6d9bb2f8f0117a"
+      ]
+    },
+    "tests/functional/test_vote_delegation.py": {
+      "coverage": false,
+      "isolated": [
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Address",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20",
+        "Token",
+        "VeYfiRewards",
+        "VoteDelegation",
+        "VotingEscrow"
+      ],
+      "results": "....",
+      "sha1": "7e7e8304dbe594ae5d42720ea8c27dc093337965",
+      "txhash": [
+        "163cb7d31f2a3d653d6e93f7b2b76d9291703619",
+        "39db3e522c5a1258b1b3f51619a091f13965e0e1",
+        "4956e6e47fe4d604442eacb3398a22ec64b0e14b"
+      ]
+    },
+    "tests/functional/test_voting_escrow.py": {
+      "coverage": false,
+      "isolated": [
+        "NextVe",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/Address",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC20",
+        "OpenZeppelin/openzeppelin-contracts@4.5.0/SafeERC20",
+        "Token",
+        "VeYfiRewards",
+        "VotingEscrow"
+      ],
+      "results": "..........",
+      "sha1": "e52aba3c9908c6e9c191974b6a3e776804de1aca",
+      "txhash": [
+        "6032783305b3bca12d61c94a4c120d5dddbfe538",
+        "84f48e0657cf1761a852a8c044706860e20a1f86",
+        "8cf6e4a1f3283f4b9b61d0bd490d29f50be16ed5",
+        "c3237f9e1f58f395455065a3151552b511dcebe4",
+        "d68e254fa0e789ac13629058c3751ff7c8c538d6"
+      ]
+    }
+  },
+  "tx": {
+    "0041d1888a86beee5659ed1f56aa0b077b06aabc": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [
+            61,
+            65
+          ],
+          [
+            154
+          ],
+          [
+            152
+          ]
+        ]
+      }
+    },
+    "07338efedfb6d60a71b573e478197058880aece3": {
+      "ExtraReward": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "11": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "163cb7d31f2a3d653d6e93f7b2b76d9291703619": {
+      "VoteDelegation": {
+        "16": [
+          [
+            10
+          ],
+          [
+            29
+          ],
+          []
+        ]
+      }
+    },
+    "1668c9ab388bca33a99e6dfb397f64faf28feeea": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [
+            13
+          ],
+          [
+            146,
+            147
+          ],
+          []
+        ]
+      }
+    },
+    "172dd383b4d7198e08c710f291b2e7e6767d82d8": {
+      "ExtraReward": {
+        "0": [
+          [
+            36
+          ],
+          [
+            88
+          ],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "11": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "21ba6f42942a683e841f54a6043207ea86a8ca9b": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [
+            42,
+            43
+          ],
+          [
+            150
+          ],
+          [
+            149
+          ]
+        ]
+      }
+    },
+    "2ab410e94474e7a7eee1e932445422e7b90169cf": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [
+            13,
+            14
+          ],
+          [
+            148
+          ],
+          [
+            146
+          ]
+        ]
+      }
+    },
+    "39db3e522c5a1258b1b3f51619a091f13965e0e1": {
+      "VoteDelegation": {
+        "16": [
+          [
+            7,
+            15
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "3c949fc7810f433b1e62af23fb10bae7f643caed": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            50
+          ],
+          [],
+          []
+        ],
+        "12": [
+          [
+            23,
+            99,
+            106,
+            107,
+            111,
+            112,
+            136
+          ],
+          [
+            163,
+            164
+          ],
+          [
+            165
+          ]
+        ],
+        "8": [
+          [
+            131
+          ],
+          [
+            179
+          ],
+          []
+        ]
+      }
+    },
+    "4956e6e47fe4d604442eacb3398a22ec64b0e14b": {
+      "VoteDelegation": {
+        "16": [
+          [
+            2
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "4b497595d88f3f684efc190f2c0f6e72b1ed00f3": {
+      "VeYfiRewards": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            25
+          ],
+          [],
+          []
+        ],
+        "15": [
+          [
+            26,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            62
+          ],
+          [
+            71,
+            74,
+            75
+          ],
+          []
+        ]
+      },
+      "VotingEscrow": {
+        "0": [
+          [
+            135,
+            137,
+            183,
+            184,
+            185,
+            300,
+            301,
+            302,
+            303,
+            305,
+            307,
+            309,
+            314
+          ],
+          [
+            136,
+            304,
+            308
+          ],
+          [
+            133,
+            181,
+            298,
+            312
+          ]
+        ]
+      }
+    },
+    "59b2947800e43166bda5bd2be43fa41532a2e6a4": {
+      "ExtraReward": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            3,
+            4
+          ],
+          [],
+          []
+        ],
+        "11": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [
+            2
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "6032783305b3bca12d61c94a4c120d5dddbfe538": {
+      "VotingEscrow": {
+        "0": [
+          [
+            53,
+            54,
+            55,
+            56,
+            57
+          ],
+          [
+            58
+          ],
+          []
+        ]
+      }
+    },
+    "6efed3a3858f5dbffed49a496c2b7b6220032c76": {
+      "ExtraReward": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "11": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [
+            2
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "79df12f6981c5c8b4e5b0423ceb26a71440a6a22": {
+      "Gauge": {
+        "0": [
+          [
+            86
+          ],
+          [
+            180
+          ],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "7e2ab2ff1da6e7971b21b556eea184f748b3cb37": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            31
+          ],
+          [
+            171
+          ],
+          []
+        ],
+        "12": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "84c7709a34b9e6e2f7695239ccca90c3b077fd1c": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            50
+          ],
+          [],
+          []
+        ],
+        "12": [
+          [
+            70,
+            92,
+            98,
+            99,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            137,
+            139
+          ],
+          [
+            159,
+            161,
+            163,
+            164,
+            165
+          ],
+          [
+            158,
+            160,
+            162
+          ]
+        ],
+        "8": [
+          [
+            131
+          ],
+          [
+            179
+          ],
+          []
+        ]
+      },
+      "VotingEscrow": {
+        "0": [
+          [
+            34,
+            135,
+            138,
+            149,
+            152,
+            183,
+            184,
+            185,
+            300,
+            301,
+            302,
+            303,
+            305,
+            307,
+            309,
+            314
+          ],
+          [
+            304,
+            308
+          ],
+          [
+            32,
+            133,
+            136,
+            139,
+            150,
+            181,
+            298,
+            312
+          ]
+        ]
+      }
+    },
+    "84f48e0657cf1761a852a8c044706860e20a1f86": {
+      "VotingEscrow": {
+        "0": [
+          [
+            53
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "8cf6e4a1f3283f4b9b61d0bd490d29f50be16ed5": {
+      "VotingEscrow": {
+        "0": [
+          [
+            9
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "91bc5a6057e6c7c943794aa40bbcd4c772894347": {
+      "VeYfiRewards": {
+        "0": [
+          [
+            30
+          ],
+          [
+            85
+          ],
+          []
+        ],
+        "15": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "a0930c50d725c737895049eca20036804030b827": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [
+            61
+          ],
+          [
+            152
+          ],
+          []
+        ]
+      }
+    },
+    "b349632fcc8deaed7fb78383ec91cd6daf1217a5": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [
+            5
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "b5541c8ace33d4fd62d60a55981601648e4c7bc6": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            6
+          ],
+          [
+            170
+          ],
+          []
+        ],
+        "12": [
+          [
+            95
+          ],
+          [],
+          []
+        ],
+        "7": [
+          [
+            5
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "c3237f9e1f58f395455065a3151552b511dcebe4": {
+      "VotingEscrow": {
+        "0": [
+          [
+            12,
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "c76b063ef8dae2d464ea3eaa3a8ca79475e09d51": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "cf77d1723f0d0c8afb417d4adaf90ba0beacd441": {
+      "VeYfiRewards": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "15": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [
+            2
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "d3c0a6f1df91cf76e4fc58d9684be7c59924ec75": {
+      "VeYfiRewards": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            3
+          ],
+          [
+            79
+          ],
+          []
+        ],
+        "15": [
+          [
+            36
+          ],
+          [],
+          []
+        ],
+        "7": [
+          [
+            2
+          ],
+          [],
+          []
+        ]
+      },
+      "VotingEscrow": {
+        "0": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "d532d0828894e9758c71fd31ca6d9bb2f8f0117a": {
+      "VeYfiRewards": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "15": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "d68e254fa0e789ac13629058c3751ff7c8c538d6": {
+      "VotingEscrow": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "df598f98f2f6795d5478043388720c5b058f8fba": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [
+            6
+          ],
+          [
+            170
+          ],
+          []
+        ],
+        "12": [
+          [
+            95
+          ],
+          [],
+          []
+        ],
+        "7": [
+          [
+            5
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "efae2f0ee89cfd4f573653ea0d175e3c2add6799": {
+      "Gauge": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "10": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [
+            42
+          ],
+          [
+            149
+          ],
+          []
+        ]
+      }
+    }
+  }
+}
