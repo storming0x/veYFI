@@ -47,13 +47,13 @@ contract Gauge is BaseGauge, IGauge {
 
     event Staked(address indexed user, uint256 amount);
     event Withdrawn(address indexed user, uint256 amount);
-    event AddedExtraReward(address reward);
+    event AddedExtraReward(address indexed reward);
     event DeletedExtraRewards(address[] rewards);
-    event RemovedExtraReward(address reward);
-    event UpdatedRewardManager(address rewardManager);
+    event RemovedExtraReward(address indexed reward);
+    event UpdatedRewardManager(address indexed rewardManager);
     event Initialized(
-        address stakingToken,
-        address rewardToken,
+        address indexed stakingToken,
+        address indexed rewardToken,
         address owner,
         address rewardManager,
         address ve,
