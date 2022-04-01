@@ -6,7 +6,7 @@ import {Vm} from "forge-std/Vm.sol";
 
 contract ExtendedDSTest is DSTest {
      
-    Vm public constant VM = Vm(HEVM_ADDRESS);
+    Vm public constant vm_std_cheats = Vm(HEVM_ADDRESS);
     
     // solhint-disable-next-line
     function assertNeq(address a, address b) internal {
