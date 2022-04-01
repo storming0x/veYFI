@@ -10,6 +10,8 @@ import {Vm} from "forge-std/Vm.sol";
 import {Token} from "../Token.sol";
 import {ExtendedDSTest} from "./ExtendedDSTest.sol";
 import {IVotingEscrow} from "../../interfaces/IVotingEscrow.sol";
+import "../../VeYfiRewards.sol";
+
 
 // Artifact paths for deploying from the deps folder, assumes that the command is run from
 // the project root.
@@ -19,8 +21,21 @@ string constant veArtifact = "foundry-artifacts/VotingEscrow.json";
 contract TestFixture is ExtendedDSTest, stdCheats {
     using SafeERC20 for IERC20;
 
-    IVotingEscrow public ve;
+    IVotingEscrow public veYFI;
+    VeYfiRewards public veYfiRewards;
     IERC20 public yfi;
+    
+    uint256 public constant WHALE_AMOUNT = 10**22;
+    uint256 public constant SHARK_AMOUNT = 10**20;
+    uint256 public constant FISH_AMOUNT = 10**18;
+    
+    address public gov = address(1);
+    address public whale = address(2);
+    address public shark = address(3);
+    address public fish = address(4);
+    address public panda = address(5);
+    address public doggie = address(6);
+    address public bunny = address(7);
 
     function setUp() public virtual {
         Token _yfi = new Token("YFI");
@@ -28,20 +43,39 @@ contract TestFixture is ExtendedDSTest, stdCheats {
         depoloyVE(address(yfi));
 
         // add more labels to make your traces readable
-        VM.label(address(yfi), "YFI");
-        VM.label(address(ve), "VE");
+        vm_std_cheats.label(address(yfi), "YFI");
+        vm_std_cheats.label(address(veYFI), "veYFI");
+        vm_std_cheats.label(address(veYfiRewards), "veYfiRewards");
+        vm_std_cheats.label(gov, "ychad");
+        vm_std_cheats.label(whale, "whale");
+        vm_std_cheats.label(shark, "shark");
+        vm_std_cheats.label(fish, "fish");
+        vm_std_cheats.label(panda, "panda");
+        vm_std_cheats.label(doggie, "doggie");
+        vm_std_cheats.label(bunny, "bunny");
 
         // do here additional setup
+        tip(address(yfi), whale, WHALE_AMOUNT);
+        tip(address(yfi), shark, SHARK_AMOUNT);
+        tip(address(yfi), fish, FISH_AMOUNT);
+        
     }
 
     // Deploys VotingEscrow
     function depoloyVE(address _token) public returns (address) {
+        skip(1);
+        vm_std_cheats.roll(1);
+        hoax(gov);
         address _ve = deployCode(
             veArtifact,
             abi.encode(_token,"veYFI","veYFI", "1.0.0")
         );
-        ve = IVotingEscrow(_ve);
+        veYFI = IVotingEscrow(_ve);
+        // setup rewards
+        veYfiRewards = new VeYfiRewards(address(veYFI), address(yfi), gov);
+        hoax(gov);
+        veYFI.set_reward_pool(address(veYfiRewards));
 
-        return address(ve);
+        return address(veYFI);
     }
 }
