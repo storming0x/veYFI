@@ -26,15 +26,19 @@ contract VeTest is TestFixture {
         skip(1 hours);
     }
 
+    function setupAccounts(uint256 _amount, address _a, address _b) internal {
+        tip(address(yfi), _a, _amount);
+        tip(address(yfi), _b, _amount);
+
+        hoax(_a);
+        yfi.approve(address(veYFI), _amount * 10);
+
+        hoax(_b);
+        yfi.approve(address(veYFI), _amount * 10);
+    }
+
     function setupAccountsAandB(uint256 _amount) internal {
-        tip(address(yfi), alice, _amount);
-        tip(address(yfi), bob, _amount);
-
-        hoax(alice);
-        yfi.approve(address(veYFI), _amount * 10);
-
-        hoax(bob);
-        yfi.approve(address(veYFI), _amount * 10);
+        setupAccounts(_amount, alice, bob);
     }
 
     function skipTimeToBeginNextWeek() internal {
@@ -230,6 +234,48 @@ contract VeTest is TestFixture {
         assertEq(veYFI.totalSupply(), 0);
         assertEq(veYFI.balanceOf(alice), 0);
         assertEq(veYFI.balanceOf(bob), 0);
+    }
+
+    function testCreateLockFor(uint256 _amount) public {
+        // setup
+        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        setupAccounts(_amount, gov, panda);
+
+        skipTimeToBeginNextWeek();
+        skip(1 hours);
+
+        // execution
+        hoax(panda);
+        vm_std_cheats.expectRevert();
+        veYFI.create_lock_for(doggie, _amount, block.timestamp + 2 weeks);
+        hoax(gov);
+        veYFI.create_lock_for(doggie, _amount, block.timestamp + 2 weeks);
+        // "Withdraw old tokens first" 
+        vm_std_cheats.expectRevert();
+        veYFI.create_lock_for(doggie, _amount, block.timestamp + 2 weeks);
+    }
+
+    function testMigrateLock(uint256 _amount) public {
+        // setup
+        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        setupAccounts(_amount, gov, panda);
+
+        skipTimeToBeginNextWeek();
+        skip(1 hours);
+        lockYfiFor(_amount, 2 weeks, panda);
+        // deploy and migrate new Ve contract
+        hoax(gov);
+        NextVe nextVe = new NextVe(address(yfi));
+        hoax(gov);
+        veYFI.set_next_ve_contract(address(nextVe));
+
+        // execution
+        hoax(panda);
+        veYFI.migrate();    
+
+        // assertions
+        assertEq(veYFI.balanceOf(panda), 0);
+        assertEq(yfi.balanceOf(address(nextVe)), _amount);
     }
 
 }
