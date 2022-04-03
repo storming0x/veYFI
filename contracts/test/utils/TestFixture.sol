@@ -26,7 +26,7 @@ contract TestFixture is ExtendedDSTest, stdCheats {
 
     IVotingEscrow public veYFI;
     VeYfiRewards public veYfiRewards;
-    IERC20 public yfi;
+    Token public yfi;
     IERC20 public vault;
     GaugeFactory public gaugeFactory;
     Registry public registry;
@@ -44,8 +44,7 @@ contract TestFixture is ExtendedDSTest, stdCheats {
     address public bunny = address(7);
 
     function setUp() public virtual {
-        Token _yfi = new Token("YFI");
-        yfi = IERC20(address(_yfi));
+        yfi = new Token("YFI");
         deployVE(address(yfi));
         deployGaugeFactory();
         deployRegistry();

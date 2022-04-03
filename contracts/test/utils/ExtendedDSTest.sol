@@ -8,6 +8,16 @@ contract ExtendedDSTest is DSTest {
     Vm public constant vm_std_cheats = Vm(HEVM_ADDRESS);
 
     // solhint-disable-next-line
+    function assertNeq(uint256 a, uint256 b) internal {
+        if (a == b) {
+            emit log("Error: a != b not satisfied [address]");
+            emit log_named_uint("  Expected", b);
+            emit log_named_uint("    Actual", a);
+            fail();
+        }
+    }
+
+    // solhint-disable-next-line
     function assertNeq(address a, address b) internal {
         if (a == b) {
             emit log("Error: a != b not satisfied [address]");
