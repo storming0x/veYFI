@@ -5,9 +5,8 @@ import "ds-test/test.sol";
 import {Vm} from "forge-std/Vm.sol";
 
 contract ExtendedDSTest is DSTest {
-     
     Vm public constant vm_std_cheats = Vm(HEVM_ADDRESS);
-    
+
     // solhint-disable-next-line
     function assertNeq(address a, address b) internal {
         if (a == b) {
@@ -19,7 +18,11 @@ contract ExtendedDSTest is DSTest {
     }
 
     // solhint-disable-next-line
-    function assertApproxEq(uint a, uint b, uint margin_of_error) internal {
+    function assertApproxEq(
+        uint256 a,
+        uint256 b,
+        uint256 margin_of_error
+    ) internal {
         if (a > b) {
             if (a - b > margin_of_error) {
                 emit log("Error a not equal to b");
@@ -36,9 +39,14 @@ contract ExtendedDSTest is DSTest {
             }
         }
     }
-    
+
     // solhint-disable-next-line
-    function assertApproxEq(uint a, uint b, uint margin_of_error, string memory err) internal {
+    function assertApproxEq(
+        uint256 a,
+        uint256 b,
+        uint256 margin_of_error,
+        string memory err
+    ) internal {
         if (a > b) {
             if (a - b > margin_of_error) {
                 emit log_named_string("Error", err);

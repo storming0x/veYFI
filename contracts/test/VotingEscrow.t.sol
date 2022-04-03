@@ -7,7 +7,6 @@ import {TestFixture} from "./utils/TestFixture.sol";
 import "./NextVe.sol";
 
 contract VeTest is TestFixture {
-
     address public alice = address(10);
     address public bob = address(11);
 
@@ -16,7 +15,6 @@ contract VeTest is TestFixture {
     uint256 public constant MULTIPLIER = 10**18;
     uint256 public constant MIN_FUZZ_RANGE = 10 * 10**18;
     uint256 public constant MAX_FUZZ_RANGE = 1000 * 10**22;
-    
 
     // setup is run on before each test
     function setUp() public override {
@@ -26,7 +24,11 @@ contract VeTest is TestFixture {
         skip(1 hours);
     }
 
-    function setupAccounts(uint256 _amount, address _a, address _b) internal {
+    function setupAccounts(
+        uint256 _amount,
+        address _a,
+        address _b
+    ) internal {
         tip(address(yfi), _a, _amount);
         tip(address(yfi), _b, _amount);
 
@@ -46,7 +48,11 @@ contract VeTest is TestFixture {
         skip((block.timestamp / 1 weeks + 1) * 1 weeks - block.timestamp);
     }
 
-    function lockYfiFor(uint256 _amount, uint256 _lockTime, address _user) internal {
+    function lockYfiFor(
+        uint256 _amount,
+        uint256 _lockTime,
+        address _user
+    ) internal {
         hoax(_user);
         veYFI.create_lock(_amount, block.timestamp + _lockTime);
     }
@@ -103,37 +109,45 @@ contract VeTest is TestFixture {
     After the test is done, check all over again with balanceOfAt / totalSupplyAt
      */
     function testVotingPowers(uint256 _amount) public {
-        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        vm_std_cheats.assume(
+            _amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE
+        );
 
         setupAccountsAandB(_amount);
 
         assertEq(veYFI.totalSupply(), 0);
-        assertEq(veYFI.balanceOf(alice), 0); 
+        assertEq(veYFI.balanceOf(alice), 0);
         assertEq(veYFI.balanceOf(bob), 0);
 
         skipTimeToBeginNextWeek();
         skip(1 hours);
-        
+
         lockYfiFor(_amount, 1 weeks, alice);
 
         skip(1 hours);
 
         // dev note: MAX_LOCK_TIME calcs from curve ve testing
-        assertEq(veYFI.totalSupply(), _amount / MAX_LOCK_TIME * (1 weeks - 2 * 1 hours));
-        assertEq(veYFI.balanceOf(alice), _amount / MAX_LOCK_TIME * (1 weeks - 2 * 1 hours));
+        assertEq(
+            veYFI.totalSupply(),
+            (_amount / MAX_LOCK_TIME) * (1 weeks - 2 * 1 hours)
+        );
+        assertEq(
+            veYFI.balanceOf(alice),
+            (_amount / MAX_LOCK_TIME) * (1 weeks - 2 * 1 hours)
+        );
         assertEq(veYFI.balanceOf(bob), 0);
-        
+
         uint256 t0 = block.timestamp;
 
         for (uint8 i = 0; i < 7; i++) {
             skip(24 hours);
             uint256 dt = block.timestamp - t0;
-            uint diff = 0;
+            uint256 diff = 0;
             if ((1 weeks - 2 * 1 hours) > dt) {
                 diff = 1 weeks - 2 * 1 hours - dt;
             }
-            assertEq(veYFI.totalSupply(), _amount / MAX_LOCK_TIME * diff);
-            assertEq(veYFI.balanceOf(alice), _amount / MAX_LOCK_TIME * diff);
+            assertEq(veYFI.totalSupply(), (_amount / MAX_LOCK_TIME) * diff);
+            assertEq(veYFI.balanceOf(alice), (_amount / MAX_LOCK_TIME) * diff);
             assertEq(veYFI.balanceOf(bob), 0);
         }
 
@@ -152,20 +166,20 @@ contract VeTest is TestFixture {
 
         lockYfiFor(_amount, 2 weeks, alice);
 
-        assertEq(veYFI.totalSupply(), _amount / MAX_LOCK_TIME * 2 weeks);
-        assertEq(veYFI.balanceOf(alice), _amount / MAX_LOCK_TIME * 2 weeks);
+        assertEq(veYFI.totalSupply(), (_amount / MAX_LOCK_TIME) * 2 weeks);
+        assertEq(veYFI.balanceOf(alice), (_amount / MAX_LOCK_TIME) * 2 weeks);
         assertEq(veYFI.balanceOf(bob), 0);
 
         lockYfiFor(_amount, 1 weeks, bob);
 
-        assertEq(veYFI.totalSupply(), _amount / MAX_LOCK_TIME * 3 weeks);
-        assertEq(veYFI.balanceOf(alice), _amount / MAX_LOCK_TIME * 2 weeks);
-        assertEq(veYFI.balanceOf(bob),  _amount / MAX_LOCK_TIME * 1 weeks);
+        assertEq(veYFI.totalSupply(), (_amount / MAX_LOCK_TIME) * 3 weeks);
+        assertEq(veYFI.balanceOf(alice), (_amount / MAX_LOCK_TIME) * 2 weeks);
+        assertEq(veYFI.balanceOf(bob), (_amount / MAX_LOCK_TIME) * 1 weeks);
 
         t0 = block.timestamp;
 
         // Beginning of week: weight 3
-        // End of week: weight 
+        // End of week: weight
         for (uint8 i = 0; i < 7; i++) {
             skip(24 hours);
             uint256 dt = block.timestamp - t0;
@@ -182,14 +196,16 @@ contract VeTest is TestFixture {
                 diff2 = 1 weeks - dt;
             }
             assertEq(wTotal, wAlice + wBob);
-            assertEq(wAlice, _amount / MAX_LOCK_TIME * diff);
-            assertEq(wBob, _amount / MAX_LOCK_TIME * diff2);
+            assertEq(wAlice, (_amount / MAX_LOCK_TIME) * diff);
+            assertEq(wBob, (_amount / MAX_LOCK_TIME) * diff2);
         }
     }
 
     function testEarlyExit(uint256 _amount) public {
         // setup
-        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        vm_std_cheats.assume(
+            _amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE
+        );
         setupAccountsAandB(_amount);
 
         skipTimeToBeginNextWeek();
@@ -215,7 +231,9 @@ contract VeTest is TestFixture {
 
     function testMigrateSetBalanceToZero(uint256 _amount) public {
         // setup
-        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        vm_std_cheats.assume(
+            _amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE
+        );
         setupAccountsAandB(_amount);
 
         skipTimeToBeginNextWeek();
@@ -238,7 +256,9 @@ contract VeTest is TestFixture {
 
     function testCreateLockFor(uint256 _amount) public {
         // setup
-        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        vm_std_cheats.assume(
+            _amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE
+        );
         setupAccounts(_amount, gov, panda);
 
         skipTimeToBeginNextWeek();
@@ -250,14 +270,16 @@ contract VeTest is TestFixture {
         veYFI.create_lock_for(doggie, _amount, block.timestamp + 2 weeks);
         hoax(gov);
         veYFI.create_lock_for(doggie, _amount, block.timestamp + 2 weeks);
-        // "Withdraw old tokens first" 
+        // "Withdraw old tokens first"
         vm_std_cheats.expectRevert();
         veYFI.create_lock_for(doggie, _amount, block.timestamp + 2 weeks);
     }
 
     function testMigrateLock(uint256 _amount) public {
         // setup
-        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        vm_std_cheats.assume(
+            _amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE
+        );
         setupAccounts(_amount, gov, panda);
 
         skipTimeToBeginNextWeek();
@@ -271,11 +293,10 @@ contract VeTest is TestFixture {
 
         // execution
         hoax(panda);
-        veYFI.migrate();    
+        veYFI.migrate();
 
         // assertions
         assertEq(veYFI.balanceOf(panda), 0);
         assertEq(yfi.balanceOf(address(nextVe)), _amount);
     }
-
 }

@@ -24,7 +24,11 @@ interface IVotingEscrow is IERC20 {
 
     function create_lock(uint256, uint256) external;
 
-    function create_lock_for(address, uint256, uint256) external;
+    function create_lock_for(
+        address,
+        uint256,
+        uint256
+    ) external;
 
     function withdraw() external;
 

@@ -46,7 +46,7 @@ contract TestFixture is ExtendedDSTest, stdCheats {
     function setUp() public virtual {
         Token _yfi = new Token("YFI");
         yfi = IERC20(address(_yfi));
-        depoloyVE(address(yfi));
+        deployVE(address(yfi));
         deployGaugeFactory();
         deployRegistry();
         deployVault();
@@ -73,7 +73,7 @@ contract TestFixture is ExtendedDSTest, stdCheats {
     }
 
     // Deploys VotingEscrow
-    function depoloyVE(address _token) public returns (address) {
+    function deployVE(address _token) public returns (address) {
         skip(1);
         vm_std_cheats.roll(1);
         hoax(gov);
