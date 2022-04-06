@@ -5,6 +5,7 @@ __pycache__
 .build/
 reports/
 out/
+build/
 node_modules
 package-lock.json
 yarn-error.log

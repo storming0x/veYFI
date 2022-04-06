@@ -8,12 +8,18 @@ dependencies:
   - name: openzeppelin
     github: OpenZeppelin/openzeppelin-contracts
     version: 4.5.0
+  - name: ds-test
+    github: dapphub/ds-test
+    # version: master
+  - name: forge-std
+    github: brockelmore/forge-std
+    # version: master
+
 
 solidity:
   import_remapping:
     - "@openzeppelin/contracts=openzeppelin/v4.5.0"
-    - "ds-test=lib/ds-test/src/"
-    - "forge-std=lib/forge-std/src/"
+    
 
 ethereum:
   local:
