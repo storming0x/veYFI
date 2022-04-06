@@ -18,7 +18,7 @@
 ![03-gauges](https://user-images.githubusercontent.com/87183122/152998641-39c8454d-4cfe-4440-b497-12f3b4d83754.svg)
 
 
-## Brownie Setup
+## Ape Setup
 
 See [ape quickstart guide](https://docs.apeworx.io/ape/stable/userguides/quickstart.html)
 
@@ -28,7 +28,7 @@ See [ape quickstart guide](https://docs.apeworx.io/ape/stable/userguides/quickst
 ape compile
 ```
 
-## Brownie Test
+## Test
 
 ```
 ape test
