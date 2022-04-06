@@ -28,31 +28,6 @@ contract VeTest is TestFixture {
         skip(1 hours);
     }
 
-    function setupAccounts(uint256 _amount, address _a, address _b) internal {
-        tip(address(yfi), _a, _amount);
-        tip(address(yfi), _b, _amount);
-
-        hoax(_a);
-        yfi.approve(address(veYFI), _amount * 10);
-
-        hoax(_b);
-        yfi.approve(address(veYFI), _amount * 10);
-    }
-
-    function setupAccountsAandB(uint256 _amount) internal {
-        setupAccounts(_amount, alice, bob);
-    }
-
-    function skipTimeToBeginNextWeek() internal {
-        // Move to timing which is good for testing - beginning of a UTC week
-        skip((block.timestamp / 1 weeks + 1) * 1 weeks - block.timestamp);
-    }
-
-    function lockYfiFor(uint256 _amount, uint256 _lockTime, address _user) internal {
-        hoax(_user);
-        veYFI.create_lock(_amount, block.timestamp + _lockTime);
-    }
-
     function testSmallQueuedRewardsDurationExtension(uint256 _amount) public {
         // setup
         vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);        
@@ -85,11 +60,10 @@ contract VeTest is TestFixture {
         assertNeq(gauge.periodFinish(), finish);
     }
 
-    function testSetDuration() public {
+    function testSetDuration(uint256 _amount) public {
         // setup
-        uint256 _amount = 10**20;
         uint256 _duration = 28 * 3600 * 24;
-        // vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
+        vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
         // vm_std_cheats.assume(_duration >= 28 * 3600 * 24 && _amount <= 1460 * 3600 * 24);
 
         Gauge gauge = createGauge(address(vault));
@@ -109,12 +83,11 @@ contract VeTest is TestFixture {
         gauge.setDuration(_duration);
 
         //asserts
-        console.log("rate", rate);
-        // assertApproxEq(gauge.rewardRate(), rate/2, 10**12);
-        // assertEq(gauge.duration(), _duration);
-        // assertNeq(gauge.periodFinish(), finish);
-        // assertApproxEq(gauge.periodFinish(), time + _duration, 10**4);
+        console.log("rate", rate/2);
+        console.log("gauge.rewardRate()", gauge.rewardRate());
+        assertApproxEq(gauge.rewardRate(), rate/2, 10**2);
+        assertEq(gauge.duration(), _duration);
+        assertNeq(gauge.periodFinish(), finish);
+        assertApproxEq(gauge.periodFinish(), time + _duration, 10**2);
     }
-
-
 }

@@ -4,6 +4,7 @@ __pycache__
 .hypothesis/
 .build/
 reports/
+cache/
 out/
 build/
 node_modules
