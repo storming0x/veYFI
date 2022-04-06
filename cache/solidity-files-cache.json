@@ -10,8 +10,8 @@
   },
   "files": {
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/BaseGauge.sol": {
-      "lastModificationDate": 1648942664026,
-      "contentHash": "334d0e3c010c3708bbd0dc7ff11a44b3",
+      "lastModificationDate": 1649220209451,
+      "contentHash": "d9c182e7769408875e27c3407a2ba814",
       "sourceName": "contracts/BaseGauge.sol",
       "solcConfig": {
         "settings": {
@@ -48,16 +48,12 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "BaseGauge": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "BaseGauge.sol/BaseGauge.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/ExtraReward.sol": {
-      "lastModificationDate": 1648942664026,
-      "contentHash": "4bb4ea39d1cece3fedda0c51025580c5",
+      "lastModificationDate": 1649220209452,
+      "contentHash": "4deb71885b040a74746abd05de1fca83",
       "sourceName": "contracts/ExtraReward.sol",
       "solcConfig": {
         "settings": {
@@ -97,16 +93,12 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "ExtraReward": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "ExtraReward.sol/ExtraReward.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/Gauge.sol": {
-      "lastModificationDate": 1648942664026,
-      "contentHash": "6769ba1b5341cec771ac16d25df97468",
+      "lastModificationDate": 1649220209452,
+      "contentHash": "02d5618e7c6e57ac2470e1a7154d09ff",
       "sourceName": "contracts/Gauge.sol",
       "solcConfig": {
         "settings": {
@@ -138,7 +130,6 @@
         "contracts/interfaces/IBaseGauge.sol",
         "contracts/interfaces/IExtraReward.sol",
         "contracts/interfaces/IGauge.sol",
-        "contracts/interfaces/IVeYfiRewardPool.sol",
         "contracts/interfaces/IVotingEscrow.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol",
@@ -148,16 +139,12 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "Gauge": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Gauge.sol/Gauge.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/GaugeFactory.sol": {
-      "lastModificationDate": 1648942664026,
-      "contentHash": "521ef7b01cd7e80aa212a1cfef824cf2",
+      "lastModificationDate": 1649220209452,
+      "contentHash": "24dba5dad683fbd222ff39df167b710f",
       "sourceName": "contracts/GaugeFactory.sol",
       "solcConfig": {
         "settings": {
@@ -191,16 +178,12 @@
         "contracts/interfaces/IGaugeFactory.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "GaugeFactory": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "GaugeFactory.sol/GaugeFactory.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/Registry.sol": {
-      "lastModificationDate": 1648942664026,
-      "contentHash": "dad4037825a2754e2f934a64c59dadaa",
+      "lastModificationDate": 1649220209452,
+      "contentHash": "a1fe21bc26a27cd638223c4efe4c8662",
       "sourceName": "contracts/Registry.sol",
       "solcConfig": {
         "settings": {
@@ -235,16 +218,12 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "Registry": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Registry.sol/Registry.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/VeYfiRewards.sol": {
-      "lastModificationDate": 1648942664026,
-      "contentHash": "c3a139ef4ff3f7307b739820468e9e40",
+      "lastModificationDate": 1649220209452,
+      "contentHash": "7e6ea382f00725b8f91802fa2f941c96",
       "sourceName": "contracts/VeYfiRewards.sol",
       "solcConfig": {
         "settings": {
@@ -283,16 +262,12 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "VeYfiRewards": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "VeYfiRewards.sol/VeYfiRewards.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/VoteDelegation.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "ab1e3311ac8d647c84343f9a060d0f8a",
+      "lastModificationDate": 1649220209452,
+      "contentHash": "d2c4d949a1b93d8d90a2d54dcc17c077",
       "sourceName": "contracts/VoteDelegation.sol",
       "solcConfig": {
         "settings": {
@@ -325,16 +300,12 @@
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "VoteDelegation": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "VoteDelegation.sol/VoteDelegation.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/interfaces/IBaseGauge.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "4078116d2d29f8479a59315b9e277a9e",
+      "lastModificationDate": 1649220209453,
+      "contentHash": "0ccfe52f154836d799543eeae6c3b4da",
       "sourceName": "contracts/interfaces/IBaseGauge.sol",
       "solcConfig": {
         "settings": {
@@ -364,16 +335,12 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "IBaseGauge": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IBaseGauge.sol/IBaseGauge.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/interfaces/IExtraReward.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "6ca062655e7d6e3c198d0bb5f0ac98bf",
+      "lastModificationDate": 1649220209453,
+      "contentHash": "035e4b38cf3c9c95bbd1021cf678bc13",
       "sourceName": "contracts/interfaces/IExtraReward.sol",
       "solcConfig": {
         "settings": {
@@ -404,16 +371,12 @@
         "contracts/interfaces/IBaseGauge.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "IExtraReward": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IExtraReward.sol/IExtraReward.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/interfaces/IGauge.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "86ab2ff1f3592fed5c6b09fab3ee4138",
+      "lastModificationDate": 1649220209453,
+      "contentHash": "bc5c16efb68d7197e00a11d1edcab611",
       "sourceName": "contracts/interfaces/IGauge.sol",
       "solcConfig": {
         "settings": {
@@ -444,16 +407,12 @@
         "contracts/interfaces/IBaseGauge.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "IGauge": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IGauge.sol/IGauge.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/interfaces/IGaugeFactory.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "1e0c53a15c525cfa55b803b2154b2580",
+      "lastModificationDate": 1649220209453,
+      "contentHash": "bf797788f10a532dad44a9370a42977c",
       "sourceName": "contracts/interfaces/IGaugeFactory.sol",
       "solcConfig": {
         "settings": {
@@ -481,53 +440,12 @@
         }
       },
       "imports": [],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "IGaugeFactory": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IGaugeFactory.sol/IGaugeFactory.json"
-        }
-      }
-    },
-    "/Users/demo/Apps/projects/yearn/veYFI/contracts/interfaces/IVeYfiRewardPool.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "4868efea74bf49edda6d5fee4c9464d5",
-      "sourceName": "contracts/interfaces/IVeYfiRewardPool.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "none"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "IVeYfiRewardPool": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IVeYfiRewardPool.sol/IVeYfiRewardPool.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/interfaces/IVotingEscrow.sol": {
-      "lastModificationDate": 1648942664027,
-      "contentHash": "d74bebf2813f751231f51c2a2db1571a",
+      "lastModificationDate": 1649220335927,
+      "contentHash": "35f3c949b43720a4c6d3e6265509f519",
       "sourceName": "contracts/interfaces/IVotingEscrow.sol",
       "solcConfig": {
         "settings": {
@@ -557,16 +475,12 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "IVotingEscrow": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IVotingEscrow.sol/IVotingEscrow.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/Gauge.t.sol": {
-      "lastModificationDate": 1649220011849,
-      "contentHash": "47e9faf462e79e90dc4de0bfcdcb535c",
+      "lastModificationDate": 1649220564290,
+      "contentHash": "6683c1342a5605c05c0b4abfb8ae344e",
       "sourceName": "contracts/test/Gauge.t.sol",
       "solcConfig": {
         "settings": {
@@ -604,7 +518,6 @@
         "contracts/interfaces/IExtraReward.sol",
         "contracts/interfaces/IGauge.sol",
         "contracts/interfaces/IGaugeFactory.sol",
-        "contracts/interfaces/IVeYfiRewardPool.sol",
         "contracts/interfaces/IVotingEscrow.sol",
         "contracts/test/NextVe.sol",
         "contracts/test/Token.sol",
@@ -628,13 +541,13 @@
       "versionRequirement": "^0.8.12",
       "artifacts": {
         "VeTest": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Gauge.t.sol/VeTest.json"
+          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "Gauge.t.sol/VeTest.json"
         }
       }
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/NextVe.sol": {
-      "lastModificationDate": 1648942664028,
-      "contentHash": "33f6f63fbc6671483f937c1e6686d255",
+      "lastModificationDate": 1649220209454,
+      "contentHash": "79cd2785e8e23f21970ed39d10c892e0",
       "sourceName": "contracts/test/NextVe.sol",
       "solcConfig": {
         "settings": {
@@ -666,16 +579,12 @@
         "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "NextVe": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "NextVe.sol/NextVe.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/Token.sol": {
-      "lastModificationDate": 1648942664028,
-      "contentHash": "ecdc61d263628a981fb23481db132f50",
+      "lastModificationDate": 1649220209454,
+      "contentHash": "4ddf414fff09b380b005571c87a0b905",
       "sourceName": "contracts/test/Token.sol",
       "solcConfig": {
         "settings": {
@@ -708,15 +617,11 @@
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "=0.8.12",
-      "artifacts": {
-        "Token": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Token.sol/Token.json"
-        }
-      }
+      "versionRequirement": "=0.8.13",
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/VotingEscrow.t.sol": {
-      "lastModificationDate": 1648942754997,
+      "lastModificationDate": 1649220525944,
       "contentHash": "716515ff55be0ff715340dc092e78405",
       "sourceName": "contracts/test/VotingEscrow.t.sol",
       "solcConfig": {
@@ -755,7 +660,6 @@
         "contracts/interfaces/IExtraReward.sol",
         "contracts/interfaces/IGauge.sol",
         "contracts/interfaces/IGaugeFactory.sol",
-        "contracts/interfaces/IVeYfiRewardPool.sol",
         "contracts/interfaces/IVotingEscrow.sol",
         "contracts/test/NextVe.sol",
         "contracts/test/Token.sol",
@@ -779,12 +683,12 @@
       "versionRequirement": "^0.8.12",
       "artifacts": {
         "VeTest": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "VotingEscrow.t.sol/VeTest.json"
+          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "VotingEscrow.t.sol/VeTest.json"
         }
       }
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/utils/ExtendedDSTest.sol": {
-      "lastModificationDate": 1649216786369,
+      "lastModificationDate": 1649220525944,
       "contentHash": "28d1c79f645adfa867f1765356cbafb2",
       "sourceName": "contracts/test/utils/ExtendedDSTest.sol",
       "solcConfig": {
@@ -819,12 +723,12 @@
       "versionRequirement": "^0.8.12",
       "artifacts": {
         "ExtendedDSTest": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "ExtendedDSTest.sol/ExtendedDSTest.json"
+          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "ExtendedDSTest.sol/ExtendedDSTest.json"
         }
       }
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/utils/TestFixture.sol": {
-      "lastModificationDate": 1649215959595,
+      "lastModificationDate": 1649220525944,
       "contentHash": "7c6b7106d9cdc3acab318b0228417e0f",
       "sourceName": "contracts/test/utils/TestFixture.sol",
       "solcConfig": {
@@ -863,7 +767,6 @@
         "contracts/interfaces/IExtraReward.sol",
         "contracts/interfaces/IGauge.sol",
         "contracts/interfaces/IGaugeFactory.sol",
-        "contracts/interfaces/IVeYfiRewardPool.sol",
         "contracts/interfaces/IVotingEscrow.sol",
         "contracts/test/Token.sol",
         "contracts/test/utils/ExtendedDSTest.sol",
@@ -884,12 +787,12 @@
       "versionRequirement": "^0.8.12",
       "artifacts": {
         "TestFixture": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "TestFixture.sol/TestFixture.json"
+          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "TestFixture.sol/TestFixture.json"
         }
       }
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/ds-test/src/test.sol": {
-      "lastModificationDate": 1648942664048,
+      "lastModificationDate": 1649220203635,
       "contentHash": "5d45a46528eaf8a26f0a8d93669f3148",
       "sourceName": "lib/ds-test/src/test.sol",
       "solcConfig": {
@@ -919,14 +822,10 @@
       },
       "imports": [],
       "versionRequirement": ">=0.4.23",
-      "artifacts": {
-        "DSTest": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "test.sol/DSTest.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/forge-std/src/Vm.sol": {
-      "lastModificationDate": 1649193038131,
+      "lastModificationDate": 1649220479615,
       "contentHash": "5e242d192cc1a77ac825a45b4c89ef29",
       "sourceName": "lib/forge-std/src/Vm.sol",
       "solcConfig": {
@@ -956,14 +855,10 @@
       },
       "imports": [],
       "versionRequirement": ">=0.6.0",
-      "artifacts": {
-        "Vm": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Vm.sol/Vm.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/forge-std/src/console.sol": {
-      "lastModificationDate": 1649193038131,
+      "lastModificationDate": 1649220479616,
       "contentHash": "907ccc8c5df3f256f3e4c4a215f521a1",
       "sourceName": "lib/forge-std/src/console.sol",
       "solcConfig": {
@@ -993,14 +888,10 @@
       },
       "imports": [],
       "versionRequirement": ">=0.4.22, <0.9.0",
-      "artifacts": {
-        "console": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "console.sol/console.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/forge-std/src/stdlib.sol": {
-      "lastModificationDate": 1649193038131,
+      "lastModificationDate": 1649220479616,
       "contentHash": "edff4c1f9c2c81f392ec796f11688f20",
       "sourceName": "lib/forge-std/src/stdlib.sol",
       "solcConfig": {
@@ -1032,20 +923,10 @@
         "lib/forge-std/src/Vm.sol"
       ],
       "versionRequirement": ">=0.6.0, <0.9.0",
-      "artifacts": {
-        "stdCheats": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "stdlib.sol/stdCheats.json"
-        },
-        "stdError": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "stdlib.sol/stdError.json"
-        },
-        "stdStorage": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "stdlib.sol/stdStorage.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1648942664103,
+      "lastModificationDate": 1649220203691,
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -1077,14 +958,10 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "Ownable": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Ownable.sol/Ownable.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol": {
-      "lastModificationDate": 1648942664116,
+      "lastModificationDate": 1649220203707,
       "contentHash": "16c039b1a7b7e924214b44f577e3c636",
       "sourceName": "lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol",
       "solcConfig": {
@@ -1116,14 +993,10 @@
         "lib/openzeppelin-contracts/contracts/utils/Address.sol"
       ],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "Initializable": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Initializable.sol/Initializable.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1648942664118,
+      "lastModificationDate": 1649220203709,
       "contentHash": "bab063ddd80e9cc9e313361fef7ef07f",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -1157,14 +1030,10 @@
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "ERC20": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "ERC20.sol/ERC20.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1648942664118,
+      "lastModificationDate": 1649220203709,
       "contentHash": "a44d1a099633876550ad2476b21bafbe",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -1194,14 +1063,10 @@
       },
       "imports": [],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "IERC20": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IERC20.sol/IERC20.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1648942664119,
+      "lastModificationDate": 1649220203711,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -1233,14 +1098,10 @@
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "IERC20Metadata": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "IERC20Metadata.sol/IERC20Metadata.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
-      "lastModificationDate": 1648942664120,
+      "lastModificationDate": 1649220203711,
       "contentHash": "76814c83c32552ed2b521c816b4d801a",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
       "solcConfig": {
@@ -1273,14 +1134,10 @@
         "lib/openzeppelin-contracts/contracts/utils/Address.sol"
       ],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "SafeERC20": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "SafeERC20.sol/SafeERC20.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/utils/Address.sol": {
-      "lastModificationDate": 1648942664122,
+      "lastModificationDate": 1649220203714,
       "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Address.sol",
       "solcConfig": {
@@ -1310,14 +1167,10 @@
       },
       "imports": [],
       "versionRequirement": "^0.8.1",
-      "artifacts": {
-        "Address": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Address.sol/Address.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/utils/Context.sol": {
-      "lastModificationDate": 1648942664123,
+      "lastModificationDate": 1649220203715,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Context.sol",
       "solcConfig": {
@@ -1347,14 +1200,10 @@
       },
       "imports": [],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "Context": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Context.sol/Context.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
-      "lastModificationDate": 1648942664124,
+      "lastModificationDate": 1649220203717,
       "contentHash": "339b9793dcbd7b5d55af725ef47de74c",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
       "solcConfig": {
@@ -1384,14 +1233,10 @@
       },
       "imports": [],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "Math": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "Math.sol/Math.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/lib/openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol": {
-      "lastModificationDate": 1648942664125,
+      "lastModificationDate": 1649220203718,
       "contentHash": "b8070bbbb327a49a4d37f5c590b38238",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol",
       "solcConfig": {
@@ -1421,11 +1266,7 @@
       },
       "imports": [],
       "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "EnumerableSet": {
-          "0.8.12+commit.f00d7308.Darwin.appleclang": "EnumerableSet.sol/EnumerableSet.json"
-        }
-      }
+      "artifacts": {}
     }
   }
 }

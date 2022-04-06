@@ -110,7 +110,7 @@ contract VeTest is TestFixture {
 
         //asserts
         console.log("rate", rate);
-        assertApproxEq(gauge.rewardRate(), rate/2, 10**12);
+        // assertApproxEq(gauge.rewardRate(), rate/2, 10**12);
         // assertEq(gauge.duration(), _duration);
         // assertNeq(gauge.periodFinish(), finish);
         // assertApproxEq(gauge.periodFinish(), time + _duration, 10**4);

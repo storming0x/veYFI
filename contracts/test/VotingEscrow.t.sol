@@ -51,21 +51,6 @@ contract VeTest is TestFixture {
         veYFI.create_lock(_amount, block.timestamp + _lockTime);
     }
 
-    // function calcPenaltyRatio(uint256 _lockEnd) internal returns (uint256 _penaltyRatio) {
-    //     assertGt(_lockEnd, block.timestamp, "expect lockEnd to be bigger than now");
-    //     console.log("_lockEnd", _lockEnd);
-    //     console.log("block.timestamp", block.timestamp);
-    //     uint256 timeLeft = _lockEnd - block.timestamp;
-    //     console.log("timeLeft", timeLeft);
-    //     uint256 _penaltyRatio = Math.min(MULTIPLIER * 3 / 4,  MULTIPLIER * timeLeft / MAX_LOCK_TIME);
-    //     console.log("penaltyRatio", _penaltyRatio);
-    // }
-
-    // function calcPenaltyAmount(uint256 _lockedAmount, uint256 _lockEnd) internal returns (uint256 amount) {
-    //     uint256 amount = _lockedAmount * calcPenaltyRatio(_lockEnd) / MULTIPLIER;
-    //     return amount;
-    // }
-
     function testSetupVeOK() public {
         console.log("address of veYFI", address(veYFI));
         console.log("address of YFI", address(yfi));
