@@ -12,6 +12,8 @@ dependencies:
 solidity:
   import_remapping:
     - "@openzeppelin/contracts=openzeppelin/v4.5.0"
+    - "ds-test=lib/ds-test/src/"
+    - "forge-std=lib/forge-std/src/"
 
 ethereum:
   local:

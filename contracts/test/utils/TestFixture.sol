@@ -11,7 +11,10 @@ import {Token} from "../Token.sol";
 import {ExtendedDSTest} from "./ExtendedDSTest.sol";
 import {IVotingEscrow} from "../../interfaces/IVotingEscrow.sol";
 import "../../VeYfiRewards.sol";
-
+import "../../Registry.sol";
+import "../../Gauge.sol";
+import "../../GaugeFactory.sol";
+import "../../ExtraReward.sol";
 
 // Artifact paths for deploying from the deps folder, assumes that the command is run from
 // the project root.
@@ -24,6 +27,10 @@ contract TestFixture is ExtendedDSTest, stdCheats {
     IVotingEscrow public veYFI;
     VeYfiRewards public veYfiRewards;
     IERC20 public yfi;
+    GaugeFactory public gaugeFactory;
+    Registry public registry;
+    Token public vault;
+    
     
     uint256 public constant WHALE_AMOUNT = 10**22;
     uint256 public constant SHARK_AMOUNT = 10**20;
@@ -41,11 +48,23 @@ contract TestFixture is ExtendedDSTest, stdCheats {
         Token _yfi = new Token("YFI");
         yfi = IERC20(address(_yfi));
         depoloyVE(address(yfi));
+        vault = new Token("mockVault");
+
+        // create gauge factory and template
+        Gauge _gaugeTemplate = new Gauge();
+        ExtraReward _extraRewardTemplate = new ExtraReward();
+        hoax(gov);
+        gaugeFactory = new GaugeFactory(address(_gaugeTemplate), address(_extraRewardTemplate));
+        hoax(gov);
+        registry = new Registry(address(veYFI), address(yfi), address(gaugeFactory), address(veYfiRewards));
 
         // add more labels to make your traces readable
         vm_std_cheats.label(address(yfi), "YFI");
         vm_std_cheats.label(address(veYFI), "veYFI");
         vm_std_cheats.label(address(veYfiRewards), "veYfiRewards");
+        vm_std_cheats.label(address(registry), "registry");
+        vm_std_cheats.label(address(gaugeFactory), "gaugeFactory");
+        vm_std_cheats.label(address(vault), "vault");
         vm_std_cheats.label(gov, "ychad");
         vm_std_cheats.label(whale, "whale");
         vm_std_cheats.label(shark, "shark");
@@ -77,5 +96,12 @@ contract TestFixture is ExtendedDSTest, stdCheats {
         veYFI.set_reward_pool(address(veYfiRewards));
 
         return address(veYFI);
+    }
+
+    function createGauge(address _vault) public returns (Gauge) {
+        hoax(gov);
+        address _gauge = registry.addVaultToRewards(_vault, gov, gov);
+
+        return Gauge(_gauge);
     }
 }
