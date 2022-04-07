@@ -59,11 +59,11 @@ contract VeTest is TestFixture {
         gauge.queueNewRewards(hundredTwentyPercent);
         assertNeq(gauge.periodFinish(), finish);
     }
-    // TODO:
+
     function testSetDuration(uint256 _amount, uint24 _duration) public {
         // setup
         uint256 MIN_DURATION = 28 * 3600 * 24;
-        uint256 MAX_DURATION = 365 * 3600 * 24;
+        uint256 MAX_DURATION = 4 * 365 * 3600 * 24;
         vm_std_cheats.assume(_amount >= MIN_FUZZ_RANGE && _amount <= MAX_FUZZ_RANGE);
         vm_std_cheats.assume(_duration >= MIN_DURATION  && _duration <= MAX_DURATION);
 
@@ -76,24 +76,21 @@ contract VeTest is TestFixture {
         gauge.queueNewRewards(_amount);
 
         uint256 finish = gauge.periodFinish();
-        console.log("finish", finish);
         uint256 rate = gauge.rewardRate();
-        console.log("rate before", rate);
         uint256 time = block.timestamp;
-        console.log("time", time);
         
         // execution
-        console.log("setDuration step");
         hoax(gov);
         gauge.setDuration(_duration);
 
         //asserts
-        console.log("expected rate", rate/2);
-        console.log("gauge.rewardRate()", gauge.rewardRate());
-        assertApproxEq(gauge.rewardRate(), rate/2, 10**13);
+        uint256 remaining = finish - block.timestamp;
+        uint256 leftover = remaining * rate;
+        uint256 expectedRate = leftover / _duration;
+        assertEq(gauge.rewardRate(), expectedRate);
         assertEq(gauge.duration(), _duration);
         assertNeq(gauge.periodFinish(), finish);
-        assertApproxEq(gauge.periodFinish(), time + _duration, 10**2);
+        assertEq(gauge.periodFinish(), time + _duration);
     }
 
     function testDistributionFullRewards() public {
