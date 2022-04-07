@@ -8,10 +8,19 @@ dependencies:
   - name: openzeppelin
     github: OpenZeppelin/openzeppelin-contracts
     version: 4.5.0
+  - name: ds-test
+    local: ./lib/ds-test
+    contracts_folder: src
+  - name: forge-std
+    local: ./lib/forge-std
+    contracts_folder: src
+
 
 solidity:
   import_remapping:
     - "@openzeppelin/contracts=openzeppelin/v4.5.0"
+    - "ds-test=ds-test/src"
+    - "forge-std=forge-std/src"
 
 ethereum:
   local:
