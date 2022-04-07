@@ -8,6 +8,5 @@ remappings = [
     '@openzeppelin/=lib/openzeppelin-contracts/',
     'forge-std/=lib/forge-std/src/'
 ]
-fuzz_max_global_rejects = 10240
 
 # See more config options https://github.com/gakonst/foundry/tree/master/config
