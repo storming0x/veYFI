@@ -479,8 +479,8 @@
       "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/Gauge.t.sol": {
-      "lastModificationDate": 1649220564290,
-      "contentHash": "6683c1342a5605c05c0b4abfb8ae344e",
+      "lastModificationDate": 1649292391409,
+      "contentHash": "37d178ada5a9a803d6ce060ed4f5a1ec",
       "sourceName": "contracts/test/Gauge.t.sol",
       "solcConfig": {
         "settings": {
@@ -621,7 +621,7 @@
       "artifacts": {}
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/VotingEscrow.t.sol": {
-      "lastModificationDate": 1649220525944,
+      "lastModificationDate": 1649221161779,
       "contentHash": "716515ff55be0ff715340dc092e78405",
       "sourceName": "contracts/test/VotingEscrow.t.sol",
       "solcConfig": {
@@ -728,8 +728,8 @@
       }
     },
     "/Users/demo/Apps/projects/yearn/veYFI/contracts/test/utils/TestFixture.sol": {
-      "lastModificationDate": 1649220525944,
-      "contentHash": "7c6b7106d9cdc3acab318b0228417e0f",
+      "lastModificationDate": 1649288784897,
+      "contentHash": "77205c34223429a8845d5e572c32fb5d",
       "sourceName": "contracts/test/utils/TestFixture.sol",
       "solcConfig": {
         "settings": {

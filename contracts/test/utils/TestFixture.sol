@@ -102,6 +102,8 @@ contract TestFixture is ExtendedDSTest, stdCheats {
         hoax(gov);
         address _gauge = registry.addVaultToRewards(_vault, gov, gov);
 
+        vm_std_cheats.label(_gauge, "gauge");
+
         return Gauge(_gauge);
     }
 }
